@@ -1,0 +1,120 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px 32px;
+  width: 100%;
+  margin: 48px auto;
+  border-radius: 10px;
+}
+
+.footer-left h3 {
+  font-size: 32px;
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+}
+
+.social-links img {
+  padding-top: 20px;
+  width: 40px;
+  height: 40px;
+}
+
+.footer-nav {
+  padding-top: 10px;
+  display: flex;
+  gap: 100px;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-nav ul li {
+  margin-bottom: 15px;
+}
+
+.footer-nav ul li a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 24px;
+}
+
+.footer-nav ul li a:hover {
+  color: #7AB469;
+}
+
+.footer-right {
+  text-align: right;
+  height: 100px;
+}
+
+.contact-info {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.contact-info a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 20px;
+}
+
+.copyright {
+  color: #000000;
+  font-size: 20px;
+  margin-top: 36px;
+}
+
+/* Анімації для футера */
+.footer-nav ul li a {
+  transition: color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.footer-nav ul li a:hover {
+  transform: translateX(5px);
+}
+
+.social-links img {
+  transition: transform 0.3s ease;
+}
+
+.social-links img:hover {
+  transform: translateY(-3px);
+}
+
+.contact-info a {
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: #7AB469;
+}
+
+/* Медіа-запити для футера */
+@media screen and (max-width: 1920px) {
+  .footer {
+    padding: 32px 26px;
+  }
+
+  .footer-left h3 {
+    font-size: 24px;
+  }
+
+  .footer-nav ul li a,
+  .contact-info a {
+    font-size: 24px;
+  }
+
+  .copyright {
+    font-size: 24px;
+  }
+} 

@@ -1,0 +1,403 @@
+.header {
+  padding: 0px 32px;
+  width: calc(83% - 64px);
+  height: 100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  background: white;
+  justify-content: space-between;
+  border-radius: 10px;
+  position: fixed;
+  top: 10px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  font-family: 'Montserrat-SemiBold', sans-serif;
+  font-size: 15px;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: #000000;
+  font-family: 'Montserrat-SemiBold';
+  font-size: 25px; 
+}
+
+.nav ul li a:hover {
+  color: #7AB469;
+}
+
+.btn-primary {
+  background: #7AB469;
+  color: white;
+  padding: 0.9rem 1.9rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Montserrat-SemiBold';
+  font-size: 25px;
+  text-decoration: none;
+  color: #ffffff;
+  width: 334px;
+}
+
+.btn-primary:hover {
+  background: #7AB469;
+  color: rgb(30, 95, 62);
+}
+
+.hero {
+  text-align: center;
+  width: 100%;
+  height: 782px;
+  margin: 0 auto;
+  margin-top: 120px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+  height: 164px;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+
+.stat-item h3 {
+  font-size: 80px;
+  margin-top: 1.6rem;
+}
+
+.stat-item p {
+  color: #000000;
+  font-size: 30px;
+  margin-top: -3.6rem;
+} 
+
+body .main-page {
+  padding: 10px 120px;
+  background-color: #FFF8F3;
+  font-family: 'Montserrat-SemiBold';
+}
+
+body {
+  padding: 10px 120px;
+  font-family: 'Montserrat-SemiBold';
+}
+@font-face {
+  font-family: 'Montserrat-SemiBold';
+  src: url('../fonts/Montserrat-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h2 {
+  font-size: 80px;
+  font-family: 'Montserrat-SemiBold';
+  text-align: left;
+}
+
+.team-image img {
+  width: 100%;
+  height: auto;
+  align-items: center;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px 32px;
+  width: 100%;
+  margin: 48px auto;
+  border-radius: 10px;
+}
+
+.footer-left h3 {
+  font-size: 32px;
+
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+}
+
+.social-links img {
+  padding-top: 20px;
+  width: 40px;
+  height: 40px;
+}
+
+.footer-nav {
+  padding-top: 10px;
+  display: flex;
+  gap: 100px;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-nav ul li {
+  margin-bottom: 15px;
+}
+
+.footer-nav ul li a {
+
+  text-decoration: none;
+  color: #000000;
+  font-size: 24px;
+}
+
+.footer-nav ul li a:hover {
+  color: #7AB469;
+}
+
+.footer-right {
+  text-align: right;
+  height: 100px;
+}
+
+.contact-info {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.contact-info a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 20px;
+}
+
+.copyright {
+  color: #000000;
+  font-size: 20px;
+  margin-top: 36px;
+}
+
+.team-image {
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+}
+
+.team-image div {
+  background-size: cover;
+  background-position: center;
+}
+
+.team-image-inner {
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/team.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.logo {
+  font-size: 16px;
+  width: 350px;
+}
+
+@media screen and (max-width: 1920px) {
+  .nav ul li a {
+    font-size: 16px;
+    gap: 10px;
+  }
+  .logo {
+    font-size: 10px;
+    width: 212px;
+  }
+
+  .btn-primary {
+    font-size: 16px;
+    width: 267px;
+    padding: 0.9rem 1.9rem;
+  }
+
+  .hero {
+    height: 626px;
+    margin-top: 70px;
+  }
+
+  .stats {
+    height: 131px;
+  }
+
+  .stat-item h3 {
+    font-size: 64px;
+  }
+
+  .stat-item p {
+    font-size: 24px;
+    margin-top: -2.9rem;
+  }
+
+  h2 {
+    font-size: 64px;
+  }
+  .header {
+      width: calc(80% - 52px); /* Изменили с 83% на 80% */
+      height: 50px;
+      padding: 10px 26px;
+      top: 8px;
+      left: 0;
+      right: 0;
+    }
+  }
+  .footer {
+    padding: 32px 26px;
+  }
+
+  .footer-left h3 {
+    font-size: 24px;
+  }
+
+  .footer-nav ul li a,
+  .contact-info a {
+    font-size: 24px;
+  }
+
+  .copyright {
+    font-size: 24px;
+  }
+
+  html, body {
+    padding: 8px 96px;
+  }
+
+  .team-image {
+    width: 1533px;
+    height: 350px;
+  }
+  
+  .team-image div {
+    width: 100%;
+    height: 100%;
+  }
+
+  .team-image-inner {
+    height: 350px;
+  }
+
+/* Добавляем базовые анимации */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Анимация для заголовка */
+.hero h2 {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Анимации для статистики */
+.stat-item {
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+/* Последовательное появление блоков статистики */
+.stat-item:nth-child(1) { animation-delay: 0.1s; }
+.stat-item:nth-child(2) { animation-delay: 0.2s; }
+.stat-item:nth-child(3) { animation-delay: 0.3s; }
+.stat-item:nth-child(4) { animation-delay: 0.4s; }
+.stat-item:nth-child(5) { animation-delay: 0.5s; }
+
+/* Эффект при наведении на цифры статистики */
+.stat-item h3 {
+  transition: color 0.3s ease;
+}
+
+.stat-item:hover h3 {
+  color: #7AB469;
+}
+
+/* Анимация для кнопки */
+.btn-primary {
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Анимации для навигации */
+.nav ul li a {
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #7AB469;
+  transition: width 0.3s ease;
+}
+
+.nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* Анимации для футера */
+.footer-nav ul li a {
+  transition: color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.footer-nav ul li a:hover {
+  transform: translateX(5px);
+}
+
+/* Анимация для социальных иконок */
+.social-links img {
+  transition: transform 0.3s ease;
+}
+
+.social-links img:hover {
+  transform: translateY(-3px);
+}
+
+/* Анимация для контактной информации */
+.contact-info a {
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: #7AB469;
+}
