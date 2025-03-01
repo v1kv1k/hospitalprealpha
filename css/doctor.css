@@ -1,0 +1,148 @@
+body {
+  background-color: #FFF8F3;
+}
+
+/* Стили для страницы специалиста */
+.doctor-profile {
+    padding-top: 120px;
+    margin-bottom: 40px;
+}
+
+.doctor-container {
+    display: flex;
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: #FFF8F3;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.doctor-image {
+    flex: 1;
+    max-width: 45%;
+}
+
+.doctor-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.doctor-info {
+    flex: 1;
+    max-width: 55%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.doctor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    background-color: #F8E6F8;
+    border-radius: 15px;
+    padding: 15px 20px;
+}
+
+.doctor-header h1 {
+    font-size: 36px;
+    margin: 0;
+    font-family: 'Montserrat-SemiBold';
+}
+
+.specialty {
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.detail-section {
+    margin-bottom: 20px;
+}
+
+.detail-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.detail-section p {
+    font-size: 18px;
+    margin: 0;
+    color: #555;
+}
+
+.professional-achievements {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.professional-achievements li {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #555;
+}
+
+.appointment-btn {
+    align-self: flex-end;
+    margin-top: 20px;
+}
+
+/* Медиа-запросы для адаптивности */
+@media screen and (max-width: 1200px) {
+    .doctor-container {
+        flex-direction: column;
+    }
+    
+    .doctor-image, .doctor-info {
+        max-width: 100%;
+    }
+    
+    .doctor-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .specialty {
+        align-self: flex-start;
+    }
+    
+    .appointment-btn {
+        align-self: center;
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .doctor-profile {
+        padding-top: 80px;
+    }
+    
+    .doctor-container {
+        padding: 15px;
+    }
+    
+    .doctor-header h1 {
+        font-size: 28px;
+    }
+    
+    .detail-section h2 {
+        font-size: 20px;
+    }
+    
+    .detail-section p, 
+    .professional-achievements li {
+        font-size: 16px;
+    }
+} 

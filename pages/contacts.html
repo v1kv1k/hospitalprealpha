@@ -3,8 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/contacts.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" 
+            crossorigin=""></script>
 
     <title>Document</title>
 </head>
@@ -16,7 +25,7 @@
     </div>
     <nav class="nav">
       <ul>
-        <li><a href="#">Головна</a></li>
+        <li><a href="../index.html">Головна</a></li>
         <li><a href="../pages/sp.html">Фахівці</a></li>
         <li><a href="../pages/articles.html">Статті</a></li>
         <li><a href="../pages/contacts.html">Контакти</a></li>
@@ -27,58 +36,65 @@
     <button class="btn-primary">Записатись</button>
   </header>
 
-    <div class="contacts-container">
+    <div class="page-container">
+      <div class="left-section">
         <h1 class="title">Контакти</h1>
         
-        <div class="contacts-content">
-          <div class="contacts-info">
-            <div class="contact-item">
-              <div class="icon">
-                <img src="../images/location-icon.svg" alt="Адреса">
-              </div>
-              <p>м. Бориспіль, вул. Бабкіна, 6</p>
+        <div class="contacts-info">
+          <div class="contact-item contact-item-centered">
+            <div class="icon">
+              <img src="../images/location-icon.svg" alt="Адреса">
             </div>
-      
-            <div class="contact-item">
-              <div class="icon">
-                <img src="../images/phone-icon.svg" alt="Телефон">
-              </div>
-              <p>(099) 198 21 02</p>
-            </div>
-      
-            <div class="contact-item">
-              <div class="icon">
-                <img src="../images/email-icon.svg" alt="Email">
-              </div>
-              <p>tsmbloknot@gmail.com</p>
-            </div>
-      
-            <div class="schedule">
-              <div class="icon">
-                <img src="../images/clock-icon.svg" alt="Режим роботи">
-              </div>
-              <div class="schedule-details">
-                <h3>Режим роботи:</h3>
-                
-                <div class="schedule-section">
-                  <h4>Консультації:</h4>
-                  <p>Будні: 8.00 — 20.00   Субота: 10.00 — 20.00</p>
-                  <p>Неділя: 10.00 — 15.00</p>
-                </div>
-      
-                <div class="schedule-section">
-                  <h4>Лаборатория:</h4>
-                  <p>Будні: 8.00 — 11.30  Субота: 8.00 — 9.30</p>
-                </div>
-              </div>
-            </div>
+            <p>м. Бориспіль, вул. Бабкіна, 6</p>
           </div>
-      
-          <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8795.948345548106!2d30.53996809108224!3d50.44844511859884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cf004263bef1%3A0x82d5f4943472d2a1!2z0KHQstCw0YHRgtC-0L0gem92IHpvdg!5e0!3m2!1sru!2sbe!4v1737552082733!5m2!1sru!2sbe" width="700" height="730" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    
+          <div class="contact-item contact-item-centered">
+            <div class="icon">
+              <img src="../images/phone-icon.svg" alt="Телефон">
+            </div>
+            <p>(099) 198 21 02</p>
+          </div>
+    
+          <div class="contact-item contact-item-centered">
+            <div class="icon">
+              <img src="../images/email-icon.svg" alt="Email">
+            </div>
+            <p>tsmbloknot@gmail.com</p>
+          </div>
+    
+          <div class="contact-item contact-item-schedule">
+            <div class="icon">
+              <img src="../images/clock-icon.svg" alt="Режим роботи">
+            </div>
+            <div class="schedule-wrapper">
+              <p><strong>Режим роботи:</strong></p>
+              
+              <p>Консультації:</p>
+              <p><span>Будні:</span> 8.00 — 20.00    <span>Субота:</span> 10.00 — 20.00</p>
+              <p><span>Неділя:</span> 10.00 — 15.00</p>
+              
+              <p>Лабораторія:</p>
+              <p><span>Будні:</span> 8.00 — 11.30    <span>Субота:</span> 8.00 — 9.30</p>
+            </div>
           </div>
         </div>
       </div>
+
+      <div class="right-section">
+        <div class="map-wrapper">
+          <button class="map-resize-btn" id="map-resize-btn" title="Розгорнути/згорнути карту">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="expand-icon">
+              <path d="M3,3H9V5H5V9H3V3M21,3V9H19V5H15V3H21M3,21V15H5V19H9V21H3M19,21H15V19H19V15H21V21" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="collapse-icon" style="display: none;">
+              <path d="M22,3.41l-5.29,5.3L20,12h-8V4l3.29,3.29L20.59,2L22,3.41z M3.41,22l5.3-5.29L12,20v-8H4l3.29,3.29L2,20.59L3.41,22z" />
+            </svg>
+          </button>
+          <div id="map-container"></div>
+        </div>
+      </div>
+    </div>
+
     <footer class="footer">
         <div class="footer-left">
         <h3>Team Spirit Medical</h3>
@@ -115,5 +131,81 @@
         </div>
     </footer>
 
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const lat = 50.348796;
+        const lon = 30.956689;
+        
+        // Инициализируем карту
+        const map = L.map('map-container', {
+          zoomControl: false // Отключаем стандартные элементы управления масштабом
+        }).setView([lat, lon], 16);
+        
+        // Добавляем слой OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        
+        // Добавляем элементы управления масштабом в другую позицию
+        L.control.zoom({
+          position: 'bottomright' // Перемещаем элементы управления в нижний правый угол
+        }).addTo(map);
+        
+        // Добавляем маркер
+        const marker = L.marker([lat, lon]).addTo(map)
+          .bindPopup('<b>Team Spirit Medical</b><br>м. Бориспіль, вул. Бабкіна, 6')
+          .openPopup();
+        
+        // Функция для обновления размеров карты
+        function updateMapSize() {
+          // Получаем элементы
+          const mapContainer = document.getElementById('map-container');
+          
+          // Проверяем, не находится ли карта в полноэкранном режиме
+          const isExpanded = document.body.classList.contains('map-expanded');
+          if (isExpanded) {
+            return; // Не меняем размер, если карта уже в полноэкранном режиме
+          }
+          
+          // Обновляем размер карты
+          map.invalidateSize();
+        }
+        
+        // Инициализация размеров
+        updateMapSize();
+        
+        // Повторный вызов через некоторое время для уверенности
+        setTimeout(updateMapSize, 300);
+        
+        // Обработчик изменения размера окна
+        window.addEventListener('resize', updateMapSize);
+        
+        // Обработчик для кнопки увеличения/уменьшения карты
+        const resizeBtn = document.getElementById('map-resize-btn');
+        const expandIcon = document.getElementById('expand-icon');
+        const collapseIcon = document.getElementById('collapse-icon');
+        
+        resizeBtn.addEventListener('click', function() {
+          document.body.classList.toggle('map-expanded');
+          
+          // Меняем иконку кнопки
+          if (document.body.classList.contains('map-expanded')) {
+            expandIcon.style.display = 'none';
+            collapseIcon.style.display = 'block';
+          } else {
+            expandIcon.style.display = 'block';
+            collapseIcon.style.display = 'none';
+            
+            // Если вышли из полноэкранного режима, обновляем размер карты
+            updateMapSize();
+          }
+          
+          // Перерисовываем карту после изменения размера
+          setTimeout(function() {
+            map.invalidateSize();
+          }, 300);
+        });
+      });
+    </script>
 </body>
 </html>

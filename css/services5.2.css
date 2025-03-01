@@ -1,0 +1,94 @@
+.body {
+  background-color: #f3e3cc;
+}
+
+
+
+.checkup-container {
+  padding-top: 100px;
+  max-width: 1920px;
+  margin: 120px auto 0;
+  padding: 0 32px;
+}
+
+.checkup-title {
+  font-size: 64px;
+  font-family: 'Montserrat-SemiBold';
+  margin-bottom: 40px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.checkup-image {
+  width: 100%;
+  height: 400px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  background-image: url('../images/checkup-women.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.checkup-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.checkup-description {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.checkup-note {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 40px;
+  animation: fadeInUp 0.6s ease-out;
+  animation-delay: 0.2s;
+}
+
+.checkup-list {
+  list-style: none;
+  padding: 0;
+}
+
+.checkup-list li {
+  font-size: 18px;
+  margin-bottom: 15px;
+  padding-left: 25px;
+  position: relative;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.checkup-list li::before {
+  content: "•";
+  color: #7AB469;
+  position: absolute;
+  left: 0;
+  font-size: 20px;
+}
+
+.checkup-title2 {
+  font-size: 48px;
+  font-family: 'Montserrat-SemiBold';
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 2200px) {
+  .checkup-title {
+    font-size: 48px;
+  }
+  
+  .checkup-image {
+    height: 300px;
+  }
+  
+  .checkup-description,
+  .checkup-list li {
+    font-size: 16px;
+  }
+}

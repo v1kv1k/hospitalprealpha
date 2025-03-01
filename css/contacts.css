@@ -1,90 +1,354 @@
+
+
 body {
   background-image: url('../images/contacts-bg.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 50px 120px;
-  font-family: 'Montserrat-SemiBold';
+  padding: 50px 83px;
+  font-weight: 500;
 }
 
+.title {
+  font-size: 38px;
+  margin-bottom: 30px;
+  color: #000;
+  margin-top: 0;
+  font-weight: 600;
+}
+
+/* Новая структура страницы */
+.page-container {
+  display: flex;
+  width: 100%;
+  gap: 225px;
+  min-height: calc(100vh - 300px);
+  margin-top: 30px;
+}
+
+.left-section {
+  width: 66%;
+  padding-right: 0;
+  margin-top: 0;
+}
+
+.right-section {
+  width: 80%;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+
+.map-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  margin-top: 0;
+}
+
+.contacts-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background: #fff;
+  padding: 18px 20px;
+  border-radius: 8px;
+  width: 100%;
+  height: auto;
+  min-height: 60px;
+  font-size: 17px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+/* Новый класс для простых контактов с центрированием */
+.contact-item-centered {
+  align-items: center;
+}
+
+/* Класс для элемента с расписанием */
+.contact-item-schedule {
+  align-items: flex-start;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 15px;
+  margin-left: 0;
+  margin-bottom: 0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Иконка в элементе с расписанием должна быть выровнена по верху */
+.contact-item-schedule .icon {
+  margin-top: 3px;
+}
+
+/* Иконка в центрированных элементах не нуждается в отступе сверху */
+.contact-item-centered .icon {
+  margin-top: 0;
+}
+
+.icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.schedule {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 18px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.schedule .icon {
+  vertical-align: top;
+  margin-top: 0;
+  flex-shrink: 0;
+}
+
+.schedule-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.schedule-header h3 {
+  margin: 0;
+  font-weight: 500;
+  font-size: 18px;
+  color: #000;
+}
+
+.schedule-details {
+  padding-left: 0;
+}
+
+.schedule-section {
+  margin-bottom: 10px;
+}
+
+.schedule-section:last-child {
+  margin-bottom: 0;
+}
+
+.schedule-section h4 {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #666;
+  margin-left: 0;
+  font-weight: 500;
+}
+
+.schedule-section p {
+  margin: 4px 0;
+  font-size: 16px;
+  margin-left: 0;
+  color: #333;
+}
+
+#map-container {
+  width: 100%;
+  height: 655px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-top: 0;
+  transition: all 0.3s ease;
+}
+
+/* Стили для кнопки увеличения карты */
+.map-resize-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  background: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-resize-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: #555;
+}
+
+/* Стили для увеличенной карты */
+.map-expanded #map-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  border-radius: 0;
+  margin-top: 0;
+}
+
+.map-expanded .map-resize-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+/* Медиа-запросы для адаптивного дизайна */
+@media (max-width: 1200px) {
+  .page-container {
+    flex-direction: column;
+    margin-top: 40px;
+    gap: 30px;
+  }
+  
+  .left-section, .right-section {
+    width: 100%;
+    padding-right: 0;
+  }
+  
+  .map-wrapper {
+    position: relative;
+    top: 0;
+    height: 500px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 30px 20px;
+  }
+  
   .title {
-    font-size: 48px;
-    margin-bottom: 40px;
-    color: #000;
-    margin-top: 100px;
+    font-size: 36px;
+    margin-top: 20px;
   }
   
-  .contacts-content {
-    display: flex;
-    gap: 40px;
-    justify-content: space-between;
+  .map-wrapper {
+    height: 400px;
   }
-  
-  .contacts-info {
-    flex: 1;
-    max-width: 500px;
-  }
-  
-  .contact-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    width: 100%;
-    height: 5cqb;
-    font-size: 20px;
-  }
-  
-  .icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 15px;
-  }
-  
-  .icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-  
-  .schedule {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    width: 100%;
-    font-size: 20px;
-  }
-  
-  .schedule-details h3 {
-    margin-bottom: 20px;
-    font-weight: 500;
-  }
-  
-  .schedule-section {
-    margin-bottom: 20px;
-  }
-  
-  .schedule-section h4 {
-    margin-bottom: 10px;
-    color: #666;
-  }
-  
-  .schedule-section p {
-    margin: 5px 0;
-  }
+}
 
-  .map {
-    border-radius: 8px;
-    margin-top: -72px;
+@media (max-width: 480px) {
+  .title {
+    font-size: 28px;
+    margin-top: 20px;
   }
-
   
-  @media (max-width: 768px) {
-    .contacts-content {
-      flex-direction: column;
-    }
-    
+  .contact-item, .schedule {
+    font-size: 16px;
+  }
+}
+
+.contact-item p {
+  margin: 3px 0;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.contact-item p strong {
+  font-weight: 600;
+  color: #000;
+}
+
+.contact-item div p:first-child {
+  margin-bottom: 8px;
+}
+
+/* Стили для блока режима работы */
+.schedule-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+}
+
+.schedule-wrapper p {
+  margin: 0 0 6px 0;
+  line-height: 1.5;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.schedule-wrapper p:first-child {
+  margin-bottom: 10px;
+}
+
+.schedule-wrapper p:nth-child(3),
+.schedule-wrapper p:nth-child(4),
+.schedule-wrapper p:nth-child(6) {
+  font-weight: 400;
+}
+
+.schedule-wrapper p:nth-child(3) span,
+.schedule-wrapper p:nth-child(4) span,
+.schedule-wrapper p:nth-child(6) span {
+  font-weight: 600;
+}
+
+.schedule-wrapper p strong {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* Добавляем отступы между "Будні" и "Субота" */
+.schedule-section p {
+  display: block;
+}
+
+/* Добавляем отступы для создания двухколоночной структуры в расписании */
+.schedule-section p:first-of-type {
+  display: flex;
+  justify-content: flex-start;
+  gap: 30px;
+  max-width: 570px;
+}
+
+/* Переопределение старых стилей */
+.schedule-section {
+  display: none;
+}
+
+/* Стиль для текста в блоке "Консультації", "Лабораторія" */
+.schedule-wrapper p:nth-child(2),
+.schedule-wrapper p:nth-child(5) {
+  font-weight: 600;
+}
+
+/* Отступы между элементами в блоке расписания */
+.schedule-wrapper p:nth-child(3),
+.schedule-wrapper p:nth-child(6) {
+  display: flex;
+  gap: 30px;
+}
+
+/* Установка отступа между Будни и Субота */
+.schedule-wrapper p span + span {
+  margin-left: 20px;
+}
+
+/* Добавим немного отступа после двоеточия */
+.schedule-wrapper p span:after {
+  content: " ";
+}

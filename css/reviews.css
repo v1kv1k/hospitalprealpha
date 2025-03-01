@@ -1,14 +1,24 @@
 body {
-    background-image: url('../images/bg-articles1.png');
+    background-color: #FFFAF3;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 50px 66px;
-    font-family: 'Montserrat', sans-serif;
+    padding: 50px 120px;
+    font-family: 'Montserrat-SemiBold';
+  }
+
+@font-face {
+    font-family: 'Montserrat-SemiBold';
+    src: url('../fonts/Montserrat-SemiBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
-.header {
-    font-family: 'Montserrat-SemiBold', sans-serif;
+@font-face {
+    font-family: 'Montserrat-Medium';
+    src: url('../fonts/Montserrat-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 .content-wrapper {
@@ -22,7 +32,45 @@ body {
     opacity: 0;
     animation: fadeIn 1.2s ease-out forwards;
 }
+.reviews-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
 
+.review-card h2 {
+    font-size: 24px;
+    margin: 0;
+    font-family: 'Montserrat-SemiBold';
+}
+
+.review-date {
+    font-size: 16px;
+    color: #666;
+}
+.reviews-page h1 {
+    font-size: 64px;
+    font-family: 'Montserrat-SemiBold';
+    margin: 0;
+}
+
+.leave-review-btn {
+    background: #7AB469;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Montserrat-SemiBold';
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.leave-review-btn:hover {
+    background: #689756;
+    transform: translateY(-2px);
+}
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -125,6 +173,7 @@ h2 {
     width: 875px;
     height: 875px;
     border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     margin-bottom: 196px;
     opacity: 0;
     animation: fadeInRight 1.2s ease-out 0.3s forwards;
@@ -204,13 +253,13 @@ h2 {
 .articles-page {
     margin-top: 120px;
     padding: 0 20px;
+
 }
 
 .articles-page h1 {
     font-size: 64px;
     margin-bottom: 50px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
+    font-family: 'Montserrat-SemiBold';
 }
 
 .articles-grid {
@@ -223,32 +272,44 @@ h2 {
 .article-card {
     background-color: #fff;
     border-radius: 10px;
-    padding: 50px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    min-height: 200px;
 }
 
 .article-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.article-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
 .article-card h2 {
-    font-size: 35px;
-    margin-bottom: 30px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
+    font-size: 28px;
+    margin: 0;
+    font-family: 'Montserrat-SemiBold';
 }
 
-.article-card p {
+.review-date {
+    color: #666;
     font-size: 16px;
+    margin: 0;
+}
+
+.article-card p:nth-of-type(1) {
+    font-size: 14px;
     line-height: 1.2;
-    color: #000000;
-    margin-bottom: 30px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    max-width: 85%;
-    white-space: normal;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    color: #333;
+    margin-bottom: 50px;
+    padding-right: 20px;
+    font-family: 'Montserrat-Medium';
 }
 
 .article-author {
@@ -256,21 +317,6 @@ h2 {
     justify-content: space-between;
     align-items: center;
     margin-top: auto;
-}
-
-.author-info h3 {
-    font-size: 18px;
-    margin-bottom: 8px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-}
-
-.author-info p {
-    font-size: 14px;
-    color: #000000;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
 }
 
 .arrow-circle {
@@ -283,8 +329,10 @@ h2 {
     justify-content: center;
     color: white;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
     rotate: 25deg;
-    margin-top: 10px;
 }
 
 .arrow-circle:hover {
@@ -296,10 +344,6 @@ h2 {
     .articles-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-
-    .article-card p {
-        max-width: 80%;
-    }
 }
 
 @media screen and (max-width: 768px) {
@@ -309,9 +353,5 @@ h2 {
     
     .articles-page h1 {
         font-size: 48px;
-    }
-
-    .article-card p {
-        max-width: 90%;
     }
 }
