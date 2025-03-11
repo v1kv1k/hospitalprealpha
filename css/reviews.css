@@ -3,7 +3,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 50px 120px;
+    padding: 50px 88px;
     font-family: 'Montserrat-SemiBold';
   }
 
@@ -173,7 +173,6 @@ h2 {
     width: 875px;
     height: 875px;
     border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     margin-bottom: 196px;
     opacity: 0;
     animation: fadeInRight 1.2s ease-out 0.3s forwards;
@@ -273,7 +272,6 @@ h2 {
     background-color: #fff;
     border-radius: 10px;
     padding: 30px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     min-height: 200px;
@@ -281,7 +279,6 @@ h2 {
 
 .article-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .article-card-header {

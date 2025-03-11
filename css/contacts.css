@@ -1,12 +1,95 @@
-
-
 body {
   background-image: url('../images/contacts-bg.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 50px 83px;
+  padding: 50px 88px;
   font-weight: 500;
+  background-attachment: fixed;
+}
+
+.header {
+  padding: 0px 32px;
+  width: calc(83% - 64px);
+  height: 100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  background: white;
+  justify-content: space-between;
+  border-radius: 10px;
+  position: fixed;
+  top: 10px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: none;
+}
+
+.nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  font-family: 'Montserrat-SemiBold', sans-serif;
+  font-size: 15px;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: #000000;
+  font-family: 'Montserrat-SemiBold';
+  font-size: 25px; 
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #7AB469;
+  transition: width 0.3s ease;
+}
+
+.nav ul li a:hover::after {
+  width: 100%;
+}
+
+.nav ul li a:hover {
+  color: #7AB469;
+}
+
+.btn-primary {
+  background: #7AB469;
+  color: white;
+  padding: 0.9rem 1.9rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Montserrat-SemiBold';
+  font-size: 25px;
+  text-decoration: none;
+  color: #ffffff;
+  width: 334px;
+}
+
+.btn-primary:hover {
+  background: #7AB469;
+  color: rgb(30, 95, 62);
+}
+
+.logo {
+  font-size: 16px;
+  width: 350px;
+}
+
+.social-links img {
+  padding-top: 20px;
+  width: 40px;
+  height: 60px;
 }
 
 .title {
@@ -63,7 +146,6 @@ body {
   height: auto;
   min-height: 60px;
   font-size: 17px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   margin-bottom: 0;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
@@ -72,6 +154,7 @@ body {
 /* Новый класс для простых контактов с центрированием */
 .contact-item-centered {
   align-items: center;
+  position: relative;
 }
 
 /* Класс для элемента с расписанием */
@@ -105,7 +188,9 @@ body {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  margin-top: 0;
 }
+
 
 .schedule {
   background: #fff;
@@ -113,7 +198,6 @@ body {
   border-radius: 8px;
   width: 100%;
   font-size: 18px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   margin-bottom: 20px;
 }
 
@@ -167,7 +251,6 @@ body {
   width: 100%;
   height: 655px;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   margin-top: 0;
   transition: all 0.3s ease;
 }
@@ -182,7 +265,6 @@ body {
   border: none;
   border-radius: 4px;
   padding: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -351,4 +433,115 @@ body {
 /* Добавим немного отступа после двоеточия */
 .schedule-wrapper p span:after {
   content: " ";
+}
+
+/* Стили для выпадающего списка телефонов */
+.phone-dropdown {
+  position: relative;
+}
+
+.phone-container {
+  width: 100%;
+}
+
+.main-phone {
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.toggle-phones {
+  display: inline-block;
+  margin-left: 5px;
+  font-size: 12px;
+  transition: transform 0.2s;
+}
+
+.hidden-phones {
+  margin-top: 5px;
+}
+
+.hidden-phones p {
+  margin: 4px 0;
+  font-size: 15px;
+}
+
+.rotate-arrow {
+  transform: rotate(180deg);
+}
+
+/* Добавьте эти стили для фиксации иконки */
+.contact-item-centered {
+  position: relative;
+}
+
+/* Фиксируем иконку телефона в абсолютной позиции */
+.contact-item #phone-icon-container {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  display: flex
+;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: -36px;
+  margin-left: 5px;
+  margin-top: 6px;
+  flex-shrink: 0;
+  z-index: 2; /* Чтобы иконка была поверх других элементов */
+}
+
+/* Убедимся, что родительский элемент имеет relative позиционирование */
+#phone-block {
+    position: relative; /* Обязательно для правильного позиционирования абсолютных элементов */
+    padding-left: 19px; /* Добавляем отступ для текста, чтобы не перекрывал иконку */
+}
+
+/* Добавляем отступ для выпадающего списка */
+#phone-dropdown-container {
+    margin-left: 0; /* Убираем отступ слева для выпадающего списка */
+}
+
+/* Если телефоны становятся слишком длинными, можно ограничить их ширину */
+#phone-dropdown p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 2.45rem;
+}
+
+/* Стиль для самой иконки телефона */
+.contact-item #phone-icon-container img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* Адаптивные стили */
+@media screen and (max-width: 2200px) {
+  .nav ul li a {
+    font-size: 16px;
+    gap: 10px;
+  }
+  
+  .logo {
+    font-size: 10px;
+    width: 212px;
+  }
+
+  .btn-primary {
+    font-size: 16px;
+    width: 267px;
+    padding: 0.9rem 1.9rem;
+  }
+  
+  .header {
+    width: calc(80% - 52px);
+    height: 50px;
+    padding: 10px 26px;
+    top: 8px;
+    left: 0;
+    right: 0;
+  }
 }

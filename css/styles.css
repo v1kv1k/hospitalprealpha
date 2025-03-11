@@ -237,7 +237,7 @@ h2 {
 @media screen and (max-width: 2200px) {
   
   .team-image {
-    width: 1515px;  
+    width: 1440px;  
     height: 480px;
   }
 
@@ -357,6 +357,18 @@ h2 {
 .stat-item:hover h3 {
   color: #7AB469;
 }
+.full-width-bg {
+  background-color: #ffffff; /* Оранжевый цвет фона */
+  width: 100vw; /* На всю ширину viewport */
+  margin-left: calc(-50vw + 50%); /* Центрирование с учетом отступов */
+  margin-right: calc(-50vw + 50%);
+  padding-left: 196px; /* Сохраняем внутренние отступы */
+  padding-right: 198px;
+  box-sizing: border-box;
+  position: relative; /* Для контекста позиционирования */
+  left: 0;
+  overflow-x: hidden; /* Предотвращаем горизонтальную прокрутку */
+}
 
 /* Анимация для кнопки */
 .btn-primary {
@@ -420,10 +432,6 @@ h2 {
   color: #7AB469;
 }
 
-.about-us {
-  background-color: #ff0000;
-}
-
 .about-us-text {
   font-size: 24px;
   color: #000000;
@@ -464,7 +472,6 @@ h2 {
   padding: 20px 30px;
   background: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   max-width: 550px;
   height: auto;
 }
@@ -483,8 +490,9 @@ h2 {
 
 .reviews-text p {
   font-size: 18px;
-  color: #666666;
+  color: #000000;
   margin: 0;
+  font-family: 'Montserrat-Medium';
 }
 
 .reviews-button {
@@ -517,6 +525,17 @@ h2 {
 
 .vector-btn svg {
   transition: transform 0.3s ease;
+}
+
+/* Новый контейнер для секции about-us */
+.about-section-wrapper {
+  background-color: #FFFAF3;
+  width: 100%;
+  margin-left: -120px; /* компенсируем отступ слева */
+  margin-right: -120px; /* компенсируем отступ справа */
+  padding-left: 120px; /* восстанавливаем внутренний отступ */
+  padding-right: 120px; /* восстанавливаем внутренний отступ */
+  overflow: hidden; /* для предотвращения горизонтальной прокрутки */
 }
 
 .vector-btn:hover svg {
@@ -566,7 +585,7 @@ h2 {
 /* Медиа-запросы для разных размеров экрана */
 @media screen and (max-width: 2200px) {
   .image-container {
-    width: 700px;
+    width: 800px;
     height: 809px;
   }
 }
@@ -626,4 +645,15 @@ h2 {
     font-size: 14px;
     padding: 0 10px;
   }
+}
+
+/* Новый контейнер для секции about-us */
+.about-section-wrapper {
+  background-color: #FFFAF3;
+  width: 100%;
+  margin-left: -120px; /* компенсируем отступ слева */
+  margin-right: -120px; /* компенсируем отступ справа */
+  padding-left: 120px; /* восстанавливаем внутренний отступ */
+  padding-right: 120px; /* восстанавливаем внутренний отступ */
+  overflow: hidden; /* для предотвращения горизонтальной прокрутки */
 }
