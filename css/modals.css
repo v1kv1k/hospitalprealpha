@@ -1,0 +1,182 @@
+/* Стили для модального окна отзывов */
+.review-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 12px;
+  width: calc(100% - 40px);
+  max-width: 500px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  position: relative;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.review-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.modal-header h2 {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: left;
+  margin: 0;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+/* Стили формы */
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+#reviewForm input, 
+#reviewForm textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  font-size: 16px;
+}
+
+#reviewForm input:focus, 
+#reviewForm textarea:focus {
+  outline: none;
+  border-color: #7AB469;
+  background-color: #fff;
+}
+
+#reviewForm input.error, 
+#reviewForm textarea.error {
+  border-color: #e74c3c;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+#reviewForm textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #7AB469;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+  position: relative;
+  font-family: 'Montserrat-SemiBold';
+}
+
+.submit-btn:hover {
+  background-color: #659A5A;
+}
+
+.submit-btn:disabled {
+  background-color: #a9d49c;
+  cursor: not-allowed;
+}
+
+/* Индикатор загрузки */
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Сообщения о статусе */
+.status-success, .status-error {
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.status-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.status-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Медиа-запросы для модальных окон */
+@media screen and (max-width: 768px) {
+  .modal-content {
+    width: calc(100% - 30px);
+    padding: 20px;
+    margin: 15px;
+  }
+  
+  .modal-header h2 {
+    font-size: 20px;
+  }
+  
+  .submit-btn {
+    font-size: 16px;
+    padding: 12px;
+  }
+} 

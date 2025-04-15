@@ -3,18 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Spirit Medical - Про нас</title>
+    <title>Відгуки</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/reviews.css">
+    <link rel="stylesheet" href="../css/header.css">
 </head>
 <body>
-
     <header class="header">
         <div class="logo">
           <h1>Team Spirit Medical</h1>
         </div>
         <nav class="nav">
-          <ul>  
+          <button class="mobile-menu-toggle" aria-label="Відкрити меню">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 12H21" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3 6H21" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3 18H21" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <ul class="nav-menu">  
             <li><a href="../index.html">Головна</a></li>
             <li><a href="../pages/sp.html">Фахівці</a></li>
             <li><a href="../pages/articles.html">Статті</a></li>
@@ -24,160 +31,88 @@
           </ul>
         </nav>
         <button class="btn-primary">Записатись</button>
-      </header>
-    <div class="space"></div>
-    <main class="articles-page">
-        <div class="reviews-header">
-            <h1>Відгуки</h1>
-            <button class="leave-review-btn">Залишити відгук</button>
+    </header>
+
+    <!-- Основний контент сторінки -->
+    <div class="content">
+        <h1>Відгуки наших пацієнтів</h1>
+        <button class="open-review-btn">Залишити відгук</button>
+        
+        <!-- Тут можна додати існуючі відгуки -->
+        <div class="reviews-container">
+            <!-- Відгуки будуть додаватись сюди -->
         </div>
-        <div class="articles-grid">
-            <!-- Перший ряд статей -->
-            <div class="article-card">
-                <div class="article-card-header">
-                    <h2>Іван Іванович</h2>
-                    <span class="review-date">29.10.2024</span>
+    </div>
+
+    <!-- Модальне вікно відгуку -->
+    <div class="review-modal" id="reviewModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="header-content">
+                    <svg class="review-icon" width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 11.5C21.0034 12.8199 20.6951 14.1219 20.1 15.3C19.3944 16.7118 18.3098 17.8992 16.9674 18.7293C15.6251 19.5594 14.0782 19.9994 12.5 20C11.1801 20.0035 9.87812 19.6951 8.7 19.1L3 21L4.9 15.3C4.30493 14.1219 3.99656 12.8199 4 11.5C4.00061 9.92179 4.44061 8.37488 5.27072 7.03258C6.10083 5.69028 7.28825 4.6056 8.7 3.90003C9.87812 3.30496 11.1801 2.99659 12.5 3.00003H13C15.0843 3.11502 17.053 3.99479 18.5291 5.47089C20.0052 6.94699 20.885 8.91568 21 11V11.5Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <h2>Відгук</h2>
                 </div>
-                <p>Декілька разів зверталися до клініки, а саме до дитячого невролога та офтальмолога, чекати нікого не довелося, все чітко за записом, без черг і будь-яких інцидентів. Окремо хочеться відзначити невролога Марину Євгенівну - чудова лікарка, фахівець і людина. Спасибі, візитами залишилися задоволені</p>                <div class="article-author">
-                    <div class="author-info">
-                    </div>
-                    <a href="#" class="article-link">
-                        <div class="arrow-circle">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="currentColor"/>
-                            </svg>
-                        </div>
-                    </a>
-                </div>
+                <button class="close-btn" id="closeModal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6 6L18 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
             </div>
-            
-            <div class="article-card">
-                <div class="article-card-header">
-                    <h2>Іван Іванович</h2>
-                    <span class="review-date">29.10.2024</span>
+            <form id="reviewForm">
+                <div class="form-group">
+                    <input type="text" id="fullName" placeholder="Ім'я та прізвище" required>
                 </div>
-                <p>Декілька разів зверталися до клініки, а саме до дитячого невролога та офтальмолога, чекати нікого не довелося, все чітко за записом, без черг і будь-яких інцидентів. Окремо хочеться відзначити невролога Марину Євгенівну - чудова лікарка, фахівець і людина. Спасибі, візитами залишилися задоволені</p>                <div class="article-author">
-                    <div class="author-info">
-                    </div>
-                    <a href="#" class="article-link">
-                        <div class="arrow-circle">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="currentColor"/>
-                            </svg>
-                        </div>
-                    </a>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Email" required>
                 </div>
-            </div>
-            
-            <div class="article-card">
-                <div class="article-card-header">
-                    <h2>Іван Іванович</h2>
-                    <span class="review-date">29.10.2024</span>
+                <div class="form-group">
+                    <textarea id="reviewText" placeholder="Відгук" rows="5" required></textarea>
                 </div>
-                <p>Декілька разів зверталися до клініки, а саме до дитячого невролога та офтальмолога, чекати нікого не довелося, все чітко за записом, без черг і будь-яких інцидентів. Окремо хочеться відзначити невролога Марину Євгенівну - чудова лікарка, фахівець і людина. Спасибі, візитами залишилися задоволені</p>                <div class="article-author">
-                    <div class="author-info">
-                    </div>
-                    <a href="#" class="article-link">
-                        <div class="arrow-circle">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="currentColor"/>
-                            </svg>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Другий ряд статей -->
-            <div class="article-card">
-                <div class="article-card-header">
-                    <h2>Іван Іванович</h2>
-                    <span class="review-date">29.10.2024</span>
-                </div>
-                <p>Декілька разів зверталися до клініки, а саме до дитячого невролога та офтальмолога, чекати нікого не довелося, все чітко за записом, без черг і будь-яких інцидентів. Окремо хочеться відзначити невролога Марину Євгенівну - чудова лікарка, фахівець і людина. Спасибі, візитами залишилися задоволені</p>                <div class="article-author">
-                    <div class="author-info">
-                    </div>
-                    <a href="#" class="article-link">
-                        <div class="arrow-circle">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="currentColor"/>
-                            </svg>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="article-card">
-                <div class="article-card-header">
-                    <h2>Іван Іванович</h2>
-                    <span class="review-date">29.10.2024</span>
-                </div>
-                <p>Декілька разів зверталися до клініки, а саме до дитячого невролога та офтальмолога, чекати нікого не довелося, все чітко за записом, без черг і будь-яких інцидентів. Окремо хочеться відзначити невролога Марину Євгенівну - чудова лікарка, фахівець і людина. Спасибі, візитами залишилися задоволені</p>                <div class="article-author">
-                    <div class="author-info">
-                    </div>
-                    <a href="#" class="article-link">
-                        <div class="arrow-circle">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="currentColor"/>
-                            </svg>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="article-card">
-                <div class="article-card-header">
-                    <h2>Іван Іванович</h2>
-                    <span class="review-date">29.10.2024</span>
-                </div>
-                <p>Декілька разів зверталися до клініки, а саме до дитячого невролога та офтальмолога, чекати нікого не довелося, все чітко за записом, без черг і будь-яких інцидентів. Окремо хочеться відзначити невролога Марину Євгенівну - чудова лікарка, фахівець і людина. Спасибі, візитами залишилися задоволені</p>                <div class="article-author">
-                    <div class="author-info">
-                    </div>
-                    <a href="#" class="article-link">
-                        <div class="arrow-circle">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="currentColor"/>
-                            </svg>
-                        </div>
-                    </a>
-                </div>
-            </div>
+                <button type="submit" class="submit-btn">Залишити відгук</button>
+            </form>
         </div>
-    </main>
-    <br> 
+    </div>
+
     <footer class="footer">
         <div class="footer-left">
-        <h3>Team Spirit Medical</h3>
-        <br>
-        <div class="social-links">
+          <h3>Team Spirit Medical</h3>
+          <br>
+          <div class="social-links">
             <a href="#"><img src="../images/email.svg" alt="Email"></a>
             <a href="#"><img src="../images/instagram.svg" alt="Instagram"></a>
             <a href="#"><img src="../images/facebook.svg" alt="Facebook"></a>
             <a href="#"><img src="../images/telegram.svg" alt="Telegram"></a>
-        </div>
+          </div>
         </div>
         
         <div class="footer-center">
-        <nav class="footer-nav">
+          <nav class="footer-nav">
             <ul>
-            <li><a href="#">Головна</a></li>
-            <li><a href="#">Фахівці</a></li>
-            <li><a href="#">Статті</a></li>
+              <li><a href="../index.html">Головна</a></li>
+              <li><a href="../pages/sp.html">Фахівці</a></li>
+              <li><a href="../pages/articles.html">Статті</a></li>
             </ul>
             <ul>
-            <li><a href="#">Мій кабінет</a></li>
-            <li><a href="#">Послуги</a></li>
-            <li><a href="#">Контакти</a></li>
+              <li><a href="../pages/mycabinet.html">Мій кабінет</a></li>
+              <li><a href="../pages/services.html">Послуги</a></li>
+              <li><a href="../pages/contacts.html">Контакти</a></li>
             </ul>
-        </nav>
+          </nav>
         </div>
 
         <div class="footer-right">
-        <div class="contact-info">
+          <div class="contact-info">
             <a href="tel:+380991982101">(099) 198 21 01</a>
             <a href="mailto:tsmbloknot@gmail.com">tsmbloknot@gmail.com</a>
-        </div>
-        <p class="copyright">© 2025 Team Spirit Medical. All rights reserved.</p>
+          </div>
+          <p class="copyright">© 2025 Team Spirit Medical. All rights reserved.</p>
         </div>
     </footer>
+
+    <script src="../js/reviews.js"></script>
+    <script src="../script.js"></script>
 </body>
 </html>

@@ -5,15 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/doctor.css">
+    <link rel="stylesheet" href="../css/header.css">
     <title>Іван Іванович - Анестезиолог | Team Spirit Medical</title>
+    <svg style="display: none;">
+        <symbol id="arrow-right" viewBox="0 0 24 24">
+            <path d="M9 18l6-6-6-6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </symbol>
+    </svg>
 </head>
-<body>
+<body class="main-page">
   <header class="header">
     <div class="logo">
       <h1>Team Spirit Medical</h1>
     </div>
     <nav class="nav">
-      <ul>  
+      <button class="mobile-menu-toggle" aria-label="Відкрити меню">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 12H21" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M3 6H21" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M3 18H21" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <ul class="nav-menu">  
         <li><a href="../index.html">Головна</a></li>
         <li><a href="../pages/sp.html">Фахівці</a></li>
         <li><a href="../pages/articles.html">Статті</a></li>
@@ -28,44 +41,49 @@
     <main class="doctor-profile">
         <div class="doctor-container">
             <div class="doctor-image">
-                <img src="../images/doc.png" alt="Іван Іванович" />
+                <img src="../images/doctor_k.jpg" alt="Іван Іванович - Анестезіолог">
             </div>
             
             <div class="doctor-info">
                 <div class="doctor-header">
                     <h1>Іван Іванович</h1>
-                    <div class="specialty">Анестезиолог</div>
+                    <span class="specialty">Анестезіолог</span>
                 </div>
                 
-                <div class="doctor-details">
-                    <div class="detail-section">
-                        <h2>Стаж роботи:</h2>
-                        <p>20 років</p>
-                    </div>
-                    
-                    <div class="detail-section">
-                        <h2>Освіта:</h2>
-                        <p>Національний медичний університет ім. О.О. Богомольця</p>
-                    </div>
-                    
-                    <div class="detail-section">
-                        <h2>Категорія:</h2>
-                        <p>Вища</p>
-                    </div>
-                    
-                    <div class="detail-section">
-                        <h2>Професійний розвиток:</h2>
-                        <ul class="professional-achievements">
-                            <li>Член асоціації Fetal Medicine Foundation.</li>
-                            <li>Підвищення кваліфікації кожен рік</li>
-                            <li>Практика на англійській мові</li>
-                            <li>Післядипломна освіта</li>
-                            <li>Член асоціації Fetal Medicine Foundation.</li>
-                        </ul>
-                    </div>
+                <div class="detail-section">
+                    <h2>Стаж роботи:</h2>
+                    <p>20 років</p>
                 </div>
                 
-                <button class="btn-primary appointment-btn">Записатися</button>
+                <div class="detail-section">
+                    <h2>Освіта:</h2>
+                    <p>Національний медичний університет ім. О.О. Богомольця</p>
+                </div>
+                
+                <div class="detail-section">
+                    <h2>Категорія:</h2>
+                    <p>Вища</p>
+                </div>
+                
+                <div class="detail-section">
+                    <h2>Професійний розвиток:</h2>
+                    <ul class="professional-achievements">
+                        <li>Член асоціації Fetal Medicine Foundation.</li>
+                        <li>Підвищення кваліфікації кожен рік</li>
+                        <li>Практика на англійській мові</li>
+                        <li>Післядипломна освіта</li>
+                    </ul>
+                </div>
+                
+                <!-- Кнопка записи к врачу (отображается на десктопе) -->
+                <button class="doctor-appointment-btn">Записатись</button>
+                
+                <!-- Иконка стрелки (отображается на планшетах) -->
+                <div class="arrow-icon">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="#7AB469"/>
+                    </svg>
+                </div>
             </div>
         </div>
     </main>
@@ -105,5 +123,110 @@
           <p class="copyright">© 2025 Team Spirit Medical. All rights reserved.</p>
         </div>
     </footer>
+
+    <div class="appointment-modal" id="appointmentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="header-content">
+                    <svg class="doctor-icon" width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.5 12a3.5 3.5 0 11-7 0 3.5 3.5 0 017 0z" stroke="black" stroke-width="2"/>
+                        <path d="M12 1.5v3" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M12 19.5v3" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M22.5 12h-3" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M4.5 12h-3" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M19.5 5l-2 2" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M6.5 18l-2 2" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M19.5 19l-2-2" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M6.5 6l-2-2" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <h2>Запис до лікаря</h2>
+                </div>
+                <button class="close-btn" id="closeAppointmentModal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6 6L18 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <form id="appointmentForm">
+                <div class="form-group">
+                    <input type="text" id="fullName" placeholder="Ім'я та прізвище" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phone" placeholder="Телефон" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <div class="dropdown-container">
+                        <div class="dropdown-header" id="serviceDropdown">
+                            <span class="dropdown-text">Оберіть послугу</span>
+                            <span class="dropdown-arrow">▼</span>
+                        </div>
+                        <div class="dropdown-options">
+                            <div class="dropdown-option" data-value="Консультація">Консультація</div>
+                            <div class="dropdown-option" data-value="Огляд">Огляд</div>
+                            <div class="dropdown-option" data-value="Діагностика">Діагностика</div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Записатись на прийом</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        // Открытие модального окна при клике на кнопку или стрелку
+        document.querySelector('.doctor-appointment-btn').addEventListener('click', function() {
+            document.getElementById('appointmentModal').classList.add('active');
+        });
+        
+        // Также открываем модальное окно при клике на стрелку
+        document.querySelector('.arrow-icon').addEventListener('click', function() {
+            document.getElementById('appointmentModal').classList.add('active');
+        });
+        
+        // Закрытие модального окна
+        document.getElementById('closeAppointmentModal').addEventListener('click', function() {
+            document.getElementById('appointmentModal').classList.remove('active');
+        });
+        
+        // Функционал выпадающего списка
+        document.getElementById('serviceDropdown').addEventListener('click', function() {
+            this.classList.toggle('active');
+            const options = this.nextElementSibling;
+            options.classList.toggle('show');
+        });
+        
+        // Выбор опции из выпадающего списка
+        document.querySelectorAll('.dropdown-option').forEach(function(option) {
+            option.addEventListener('click', function() {
+                const text = this.textContent;
+                const dropdown = document.querySelector('.dropdown-text');
+                dropdown.textContent = text;
+                dropdown.dataset.value = this.dataset.value;
+                
+                // Закрываем выпадающий список после выбора
+                document.getElementById('serviceDropdown').classList.remove('active');
+                document.querySelector('.dropdown-options').classList.remove('show');
+                
+                // Отмечаем выбранную опцию
+                document.querySelectorAll('.dropdown-option').forEach(function(opt) {
+                    opt.classList.remove('selected');
+                });
+                this.classList.add('selected');
+            });
+        });
+        
+        // Закрываем выпадающий список при клике вне его
+        document.addEventListener('click', function(event) {
+            const dropdown = document.querySelector('.dropdown-container');
+            if (!dropdown.contains(event.target)) {
+                document.getElementById('serviceDropdown').classList.remove('active');
+                document.querySelector('.dropdown-options').classList.remove('show');
+            }
+        });
+    </script>
+    <script src="../script.js"></script>
 </body>
 </html> 

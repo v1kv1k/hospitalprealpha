@@ -1,18 +1,23 @@
 body {
   background-color: #FFFAF3; /* Светло-оранжевый/бежевый цвет как на других страницах */
   font-family: 'Montserrat-SemiBold';
+  margin: 0;
+  padding: 0;
 }
 
 .checkup-container {
-  max-width: 1920px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  margin-top: 80px; /* Увеличиваем отступ от хедера до 80px */
 }
 
 .checkup-title {
-  font-size: 64px;
+  font-size: 48px;
   font-family: 'Montserrat-SemiBold';
   margin-bottom: 40px;
   animation: fadeInUp 0.8s ease-out;
-  padding-top: 50px;
+  padding-top: 30px; /* Уменьшим, так как добавили margin для контейнера */
 }
 
 .checkup-image {
@@ -47,11 +52,13 @@ body {
   animation: fadeInUp 0.6s ease-out;
   animation-delay: 0.2s;
   font-family: 'Montserrat-Medium';
+  line-height: 1.5;
 }
 
 .checkup-list {
   list-style: none;
   padding: 0;
+  margin-bottom: 60px;
 }
 
 .checkup-list li {
@@ -60,6 +67,7 @@ body {
   padding-left: 25px;
   position: relative;
   animation: fadeInUp 0.6s ease-out;
+  line-height: 1.4;
 }
 
 .checkup-list li::before {
@@ -71,22 +79,148 @@ body {
 }
 
 .checkup-title2 {
-  font-size: 48px;
+  font-size: 32px;
   font-family: 'Montserrat-SemiBold';
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  line-height: 1.3;
 }
 
-@media screen and (max-width: 2200px) {
+/* Адаптивность для больших экранов */
+@media screen and (max-width: 1400px) {
+  .checkup-container {
+    max-width: 1000px;
+  }
+  
   .checkup-title {
-    font-size: 48px;
+    font-size: 42px;
+  }
+  
+  .checkup-title2 {
+    font-size: 28px;
+  }
+  
+  .checkup-image {
+    height: 350px;
+  }
+}
+
+/* Адаптивность для средних экранов (планшеты) */
+@media screen and (max-width: 992px) {
+  .checkup-container {
+    padding: 0 30px;
+    margin-top: 50px; /* Уменьшенный отступ для планшетов */
+  }
+  
+  .checkup-title {
+    font-size: 36px;
+    padding-top: 20px; /* Уменьшим для планшетов */
+    margin-bottom: 30px;
+  }
+  
+  .checkup-title2 {
+    font-size: 24px;
   }
   
   .checkup-image {
     height: 300px;
+    margin-bottom: 30px;
   }
   
-  .checkup-description,
+  .checkup-description, 
   .checkup-list li {
     font-size: 16px;
+  }
+  
+  .checkup-note {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+}
+
+/* Адаптивность для планшетов */
+@media screen and (max-width: 768px) {
+  .checkup-container {
+    padding: 0 20px;
+    margin-top: 40px; /* Еще меньше для маленьких планшетов */
+  }
+  
+  .checkup-title {
+    font-size: 32px;
+    padding-top: 20px;
+    margin-bottom: 25px;
+  }
+  
+  .checkup-title2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  
+  .checkup-image {
+    height: 250px;
+    margin-bottom: 25px;
+  }
+  
+  .checkup-description {
+    font-size: 15px;
+    margin-bottom: 25px;
+  }
+  
+  .checkup-list li {
+    margin-bottom: 12px;
+    padding-left: 20px;
+  }
+  
+  .checkup-list {
+    margin-bottom: 40px;
+  }
+}
+
+/* Адаптивность для мобильных устройств */
+@media screen and (max-width: 480px) {
+  .checkup-container {
+    padding: 0 15px;
+    margin-top: 30px; /* Маленький отступ для мобильных */
+  }
+  
+  .checkup-title {
+    font-size: 24px;
+    padding-top: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .checkup-title2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    line-height: 1.4;
+  }
+  
+  .checkup-image {
+    height: 200px;
+    margin-bottom: 20px;
+  }
+  
+  .checkup-description {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .checkup-note {
+    font-size: 13px;
+    margin-bottom: 25px;
+  }
+  
+  .checkup-list li {
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding-left: 18px;
+  }
+  
+  .checkup-list li::before {
+    font-size: 16px;
+  }
+  
+  .checkup-list {
+    margin-bottom: 30px;
   }
 }

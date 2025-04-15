@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/contacts.css">
+    <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
           crossorigin=""/>
@@ -18,91 +19,8 @@
     <!-- Отключаем Tailwind временно для демонстрации -->
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     
-    <style>
-      /* Переопределяем стили локально */
-      .footer .social-links {
-        display: flex;
-        gap: 20px;
-      }
-      .footer .social-links a {
-        display: block;
-      }
-      .footer .social-links img {
-        width: 40px;
-        height: 40px;
-        padding-top: 20px;
-        transition: transform 0.3s ease;
-      }
-      .footer .social-links img:hover {
-        transform: translateY(-3px);
-      }
-      
-      
-      /* Стили для блока телефона */
-      #phone-block .w-full {
-        width: 100%;
-      }
-      #main-phone {
-        padding-left: 2.35rem;
-        cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      #toggle-arrow {
-        margin-left: 0.5rem;
-        font-size: 0.75rem;
-        transition-property: transform;
-        transition-duration: 300ms;
-      }
-      #toggle-arrow img {
-        width: 1rem;
-        height: 1rem;
-      }
-      #phone-dropdown-container {
-        overflow: hidden;
-        transition-property: all;
-        transition-duration: 300ms;
-        height: 0;
-      }
-      #phone-dropdown {
-        margin-top: 0.5rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-      #phone-dropdown p {
-        padding-top: 0.25rem;
-        padding-bottom: 0.25rem;
-        padding-left: 2.35rem;
-      }
-      #phone-dropdown p:not(:last-child) {
-        border-bottom: 1px solid rgba(243, 244, 246, 1);
-      }
-      
-      .contact-item #phone-icon-container {
-        position: absolute;
-        left: 15px;
-        top: 29px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 24px;
-        height: 24px;
-        margin-right: -36px;
-        margin-left: 5px;
-        margin-top: 6px;
-        flex-shrink: 0;
-        z-index: 2;
-        transition: top 0.3s ease;
-      }
-      
-      /* Стиль для иконки телефона при открытом выпадающем списке */
-      .phone-open #phone-icon-container {
-        top: 14px;
-      }
-    </style>
-
+    <script src="../js/phoneDropdown.js"></script>
+    
     <title>Document</title>
 </head>
 <body>
@@ -112,7 +30,14 @@
       <h1>Team Spirit Medical</h1>
     </div>
     <nav class="nav">
-      <ul>  
+      <button class="mobile-menu-toggle" aria-label="Відкрити меню">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 12H21" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M3 6H21" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M3 18H21" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <ul class="nav-menu">  
         <li><a href="../index.html">Головна</a></li>
         <li><a href="../pages/sp.html">Фахівці</a></li>
         <li><a href="../pages/articles.html">Статті</a></li>
@@ -129,40 +54,28 @@
         <h1 class="title">Контакти</h1>
         
         <div class="contacts-info">
-          <div class="contact-item contact-item-centered">
+          <div class="contact-item center-icon">
             <div class="icon">
               <img src="../images/location-icon.svg" alt="Адреса">
             </div>
             <p>м. Бориспіль, вул. Бабкіна, 6</p>
           </div>
     
-          <div class="contact-item contact-item-centered" id="phone-block">
-            <div class="icon" id="phone-icon-container">
+          <div class="contact-item" id="phone-block">
+            <div class="icon">
               <img src="../images/phone-icon.svg" alt="Телефон">
             </div>
-            <div class="w-full">
-              <p class="pl-2 cursor-pointer flex justify-between items-center" id="main-phone">
-                <span>(099) 198 21 02</span>
-                <span class=" ml-2 text-xs transition-transform duration-300" id="toggle-arrow"><img class="w-4 h-4" src="../images/arrow-down.svg" alt="arrow-down"></span>
-              </p>
-              <div id="phone-dropdown-container" class="overflow-hidden transition-all duration-300 h-0">
-                <div class="space-y-2" id="phone-dropdown">
-                  <p class="ms-8 py-1 pl-7 border-b border-gray-100">(050) 456 78 90</p>
-                  <p class="py-1 pl-7 border-b border-gray-100">(073) 123 45 67</p>
-                  <p class="py-1 pl-7 ">(067) 987 65 43</p>
-                </div>
-              </div>
-            </div>
+            <!-- Здесь PhoneDropdown.js создаст нужную структуру -->
           </div>
     
-          <div class="contact-item contact-item-centered">
+          <div class="contact-item center-icon">
             <div class="icon">
               <img src="../images/email-icon.svg" alt="Email">
             </div>
             <p>tsmbloknot@gmail.com</p>
           </div>
     
-          <div class="contact-item contact-item-schedule">
+          <div class="contact-item">
             <div class="icon">
               <img src="../images/clock-icon.svg" alt="Режим роботи">
             </div>
@@ -170,11 +83,15 @@
               <p><strong>Режим роботи:</strong></p>
               
               <p>Консультації:</p>
-              <p><span>Будні:</span> 8.00 — 20.00    <span>Субота:</span> 10.00 — 20.00</p>
-              <p><span>Неділя:</span> 10.00 — 15.00</p>
+              <div class="schedule-indent">
+                <p><strong>Будні</strong>: <span style="font-weight: 450;">8.00 — 20.00</span>   <strong>Субота</strong>: <span style="font-weight: 450;">10.00 — 20.00</span></p>
+                <p><strong>Неділя</strong>: <span style="font-weight: 450;">10.00 — 15.00</span></p>
+              </div>
               
               <p>Лабораторія:</p>
-              <p><span>Будні:</span> 8.00 — 11.30    <span>Субота:</span> 8.00 — 9.30</p>
+              <div class="schedule-indent">
+                <p><strong>Будні</strong>: <span style="font-weight: 450;">8.00 — 11.30</span>   <strong>Субота</strong>: <span style="font-weight: 450;">8.00 — 9.30</span></p>
+              </div>
             </div>
           </div>
         </div>
@@ -182,10 +99,6 @@
 
       <div class="right-section">
         <div class="map-wrapper">
-          <button class="map-resize-btn" id="map-resize-btn" title="Розгорнути/згорнути карту">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="expand-icon">
-              <path d="M3,3H9V5H5V9H3V3M21,3V9H19V5H15V3H21M3,21V15H5V19H9V21H3M19,21H15V19H19V15H21V21" />
-            </svg>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="collapse-icon" style="display: none;">
               <path d="M22,3.41l-5.29,5.3L20,12h-8V4l3.29,3.29L20.59,2L22,3.41z M3.41,22l5.3-5.29L12,20v-8H4l3.29,3.29L2,20.59L3.41,22z" />
             </svg>
@@ -293,75 +206,30 @@
         const expandIcon = document.getElementById('expand-icon');
         const collapseIcon = document.getElementById('collapse-icon');
         
-        resizeBtn.addEventListener('click', function() {
-          document.body.classList.toggle('map-expanded');
-          
-          // Меняем иконку кнопки
-          if (document.body.classList.contains('map-expanded')) {
-            expandIcon.style.display = 'none';
-            collapseIcon.style.display = 'block';
-          } else {
-            expandIcon.style.display = 'block';
-            collapseIcon.style.display = 'none';
+        if (resizeBtn) {
+          resizeBtn.addEventListener('click', function() {
+            document.body.classList.toggle('map-expanded');
             
-            // Если вышли из полноэкранного режима, обновляем размер карты
-            updateMapSize();
-          }
-          
-          // Перерисовываем карту после изменения размера
-          setTimeout(function() {
-            map.invalidateSize();
-          }, 300);
-        });
-
-        const mainPhone = document.getElementById('main-phone');
-        const phoneDropdown = document.getElementById('phone-dropdown');
-        const dropdownContainer = document.getElementById('phone-dropdown-container');
-        const toggleArrow = document.getElementById('toggle-arrow');
-        let isOpen = false;
-        
-        mainPhone.addEventListener('click', function() {
-          isOpen = !isOpen;
-          
-          // Анимация вращения стрелки
-          toggleArrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
-          
-          // Добавляем/удаляем класс для позиционирования иконки телефона
-          document.getElementById('phone-block').classList.toggle('phone-open', isOpen);
-          
-          // Анимация высоты контейнера
-          if (isOpen) {
-            // Сначала измерим высоту содержимого
-            const contentHeight = phoneDropdown.offsetHeight;
-            // Затем установим точную высоту для анимации
-            dropdownContainer.style.height = contentHeight + 'px';
+            // Меняем иконку кнопки
+            if (document.body.classList.contains('map-expanded')) {
+              expandIcon.style.display = 'none';
+              collapseIcon.style.display = 'block';
+            } else {
+              expandIcon.style.display = 'block';
+              collapseIcon.style.display = 'none';
+              
+              // Если вышли из полноэкранного режима, обновляем размер карты
+              updateMapSize();
+            }
             
-            // Добавим анимацию появления
-            phoneDropdown.style.opacity = '0';
-            setTimeout(() => {
-              phoneDropdown.style.opacity = '1';
-              phoneDropdown.style.transition = 'opacity 0.2s ease-in';
-            }, 50);
-          } else {
-            // Анимация закрытия
-            dropdownContainer.style.height = '0px';
-            phoneDropdown.style.opacity = '0';
-          }
-        });
-        
-        // Добавим анимацию при наведении на телефоны
-        const phoneItems = dropdownContainer.querySelectorAll('p');
-        phoneItems.forEach(item => {
-          item.addEventListener('mouseenter', function() {
-            this.classList.add('scale-105');
-            this.style.transition = 'transform 0.2s ease';
+            // Перерисовываем карту после изменения размера
+            setTimeout(function() {
+              map.invalidateSize();
+            }, 300);
           });
-          
-          item.addEventListener('mouseleave', function() {
-            this.classList.remove('scale-105');
-          });
-        });
+        }
       });
     </script>
+    <script src="../script.js"></script>
 </body>
 </html>

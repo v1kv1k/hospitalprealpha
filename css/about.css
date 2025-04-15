@@ -1,0 +1,160 @@
+.about-section {
+  width: 100%;
+  background-color: #FFFAF3;
+  padding: 80px 0;
+}
+
+.about-us-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.about-us-content {
+  width: 100%;
+  max-width: 800px;
+  height: fit-content;
+  position: relative;
+  z-index: 1;
+}
+
+.about-header-block {
+  margin-bottom: 40px;
+}
+
+.about-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #000;
+  margin-bottom: 40px;
+}
+
+.about-benefits-block {
+  margin-bottom: 40px;
+}
+
+.about-benefits-block h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.benefits-list {
+  list-style-type: disc;
+  padding-left: 25px;
+  margin-top: 10px;
+}
+
+.benefits-list li {
+  margin-bottom: 1rem;
+  font-size: 20px;
+}
+
+.image-container {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background-image: url('../images/team-image.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  right: 0;
+  top: -87px;
+}
+
+/* Медиа-запросы для секции "О нас" */
+@media screen and (max-width: 1600px) {
+  .about-us-grid {
+    height: 600px;
+  }
+  
+  .image-container {
+    width: 500px;
+  }
+  
+  .about-us-content h2 {
+    font-size: 56px;
+  }
+  
+  .about-us-text {
+    font-size: 20px;
+  }
+  
+  .benefits-list li {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .about-us-grid {
+    height: 550px;
+  }
+  
+  .image-container {
+    width: 450px;
+  }
+  
+  .about-us-content h2 {
+    font-size: 48px;
+  }
+  
+  .about-us-text {
+    font-size: 18px;
+  }
+  
+  .benefits-list li {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .about-us-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  
+  .about-us-content {
+    max-width: 100%;
+  }
+
+  .image-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin-top: 40px;
+    order: 2;
+  }
+
+  .about-us-content {
+    order: 1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about-us-content h2 {
+    font-size: 40px;
+  }
+  
+  .about-us-text {
+    font-size: 16px;
+  }
+  
+  .benefits-list li {
+    font-size: 16px;
+  }
+  
+  .image-container {
+    height: 350px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .about-us-content h2 {
+    font-size: 32px;
+  }
+  
+  .image-container {
+    height: 300px;
+  }
+} 

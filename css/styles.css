@@ -1,22 +1,117 @@
+/* Импорт всех CSS файлов */
+@import url('base.css');
+@import url('header.css');
+@import url('footer.css');
+@import url('hero.css');
+@import url('about.css');
+@import url('stats.css');
+@import url('reviews.css');
+@import url('modals.css');
+@import url('components.css');
+
+/* Общие стили */
+:root {
+  --primary-color: #7AB469;
+  --primary-hover: #659A5A;
+  --text-color: #333;
+  --light-text: #666;
+  --background: #FFFAF3;
+  --white: #FFFFFF;
+
+  /* Основные настройки футера */
+  --footer-title-size: 42px;               /* Размер заголовка в футере */
+  --footer-title-margin-bottom: 22px;      /* Отступ от заголовка до иконок */
+  --footer-left-column-width: 25%;         /* Ширина левой колонки футера */
+  --footer-center-column-width: 30%;       /* Ширина центральной колонки футера */
+  --footer-right-column-width: 35%;        /* Ширина правой колонки футера */
+  
+  /* Настройки иконок социальных сетей */
+  --social-icons-size: 42px;               /* Размер иконок */
+  --social-icons-gap: 10px;                /* Расстояние между иконками */
+  
+  /* Настройки расположения */
+  --footer-padding-vertical: 10px;         /* Вертикальные отступы футера */
+  --footer-padding-horizontal: 32px;       /* Горизонтальные отступы футера */
+  
+  /* Настройки изображения команды */
+  --team-image-mobile-height: 200px;       /* Высота изображения команды на мобильных устройствах */
+}
+
+/* Сброс стилей */
+* {
+  box-sizing: border-box;
+}
+
+/* Основные стили */
+body {
+  font-family: 'Montserrat-Medium', sans-serif;
+  color: var(--text-color);
+  background-color: var(--background);
+  line-height: 1.6;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Контейнер */
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* Медиа-запросы */
+@media screen and (max-width: 1400px) {
+  .container {
+    padding: 0 24px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
 .header {
   padding: 0px 32px;
-  width: calc(83% - 64px);
+  width: 100%;
+  max-width: 1920px;
   height: 100px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   background: white;
   justify-content: space-between;
-  border-radius: 10px;
+  border-radius: 0;
   position: fixed;
-  top: 10px;
+  top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  box-shadow: none;
+  box-sizing: border-box;
 }
 
+/* Стили для мобильного меню */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 1001;
+}
 
+.mobile-menu-toggle span {
+  width: 100%;
+  height: 3px;
+  background-color: #000;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
 
 .nav ul {
   display: flex;
@@ -59,45 +154,63 @@
 .hero {
   text-align: center;
   width: 100%;
-  height: 782px;
-  margin: 0 auto;
-  margin-top: 120px;
+  height: auto;
+  margin: 0;
+  padding-top: 120px;
+  padding-bottom: 50px;
+  box-sizing: border-box;
 }
 
 .stats {
+  padding: 30px 20px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 2rem;
-  text-align: center;
   width: 100%;
-  height: 164px;
-  margin: 0 auto;
+  margin: 0;
   background-color: #ffffff;
-  padding-bottom: 230px;
+  box-sizing: border-box;
+}
+
+.stat-item {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.about-header-block p{
+  font-size: 20px;
+  padding-bottom: 30px;
 }
 
 .stat-item h3 {
-  font-size: 80px;
-  margin-top: 1.6rem;
+  font-size: 60px;
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-family: 'Montserrat-SemiBold';
+}
+
+.stat-item h3 a {
+  color: #000;
+  text-decoration: none;
 }
 
 .stat-item p {
-  color: #000000;
-  font-size: 30px;
-  margin-top: -3.6rem;
-} 
-
-body .main-page {
-  padding: 10px 120px;
-  background-color: #FFF8F3;
-  font-family: 'Montserrat-SemiBold';
+  font-size: 16px;
+  margin-top: 0;
+  font-family: 'Montserrat-Medium';
 }
 
-body {
-  padding: 10px 120px;
-  font-family: 'Montserrat-SemiBold';
+.main-page {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #FFFAF3;
+  position: relative;
+  box-sizing: border-box;
+  min-height: 100vh;
 }
+
 @font-face {
   font-family: 'Montserrat-SemiBold';
   src: url('../fonts/Montserrat-SemiBold.ttf') format('truetype');
@@ -116,117 +229,122 @@ h2 {
   font-size: 80px;
   font-family: 'Montserrat-SemiBold';
   text-align: left;
+  margin-bottom: 0;
+  margin-top: 40px;
+}
+
+.team-image {
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+  text-align: center;
 }
 
 .team-image img {
-  width: 100%;
-  height: auto;
-  align-items: center;
+  display: block;
 }
 
 .footer {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 40px 32px;
+  padding: var(--footer-padding-vertical) var(--footer-padding-horizontal);
   width: 100%;
-  margin: 48px auto;
+  margin: 48px auto 0 auto;
   border-radius: 10px;
 }
 
-.footer-left h3 {
-  font-size: 32px;
+.footer-left {
+  width: var(--footer-left-column-width);
+  display: flex;
+  flex-direction: column;
+}
 
+.footer-center {
+  width: var(--footer-center-column-width);
+}
+
+.footer-right {
+  width: var(--footer-right-column-width);
+  text-align: right;
+}
+
+.footer-left h3 {
+  font-size: var(--footer-title-size);
+  font-weight: 600;
+  margin: 0 0 var(--footer-title-margin-bottom) 0;
 }
 
 .social-links {
   display: flex;
-  gap: 20px;
+  gap: var(--social-icons-gap);
+  padding-top: 76px;
 }
 
 .social-links img {
-  padding-top: 20px;
-  width: 40px;
-  height: 40px;
+  width: var(--social-icons-size);
+  height: var(--social-icons-size);
 }
 
 .footer-nav {
-  padding-top: 10px;
   display: flex;
   gap: 100px;
+  margin-top: -17px;
+  margin-bottom: 0;
 }
 
 .footer-nav ul {
+  display: flex;
+  flex-direction: column;
   list-style: none;
-  padding: 0;
+  gap: 10px;
 }
 
 .footer-nav ul li {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .footer-nav ul li a {
-
   text-decoration: none;
   color: #000000;
-  font-size: 24px;
+  font-size: 18px;
+  font-family: 'Montserrat-Medium';
+  font-weight: normal;
 }
 
 .footer-nav ul li a:hover {
   color: #7AB469;
-  text-decoration: underline;
-}
-
-.footer-right {
-  text-align: right;
-  height: 100px;
+  text-decoration: none;
 }
 
 .contact-info {
-  padding-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 20px;
+  margin-bottom: 0;
 }
 
 .contact-info a {
   text-decoration: none;
   color: #000000;
-  font-size: 20px;
+  font-size: 18px;
+  font-family: 'Montserrat-Medium';
+}
+
+.contact-info a[href^="tel:"] {
+  text-decoration: none;
+  color: #000000;
+  font-size: 24px;
+  font-family: 'Montserrat-SemiBold';
+  font-weight: bold;
 }
 
 .copyright {
   color: #000000;
-  font-size: 20px;
-  margin-top: 36px;
-}
-
-.team-image {
-  margin: 0 auto;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 15px;
-}
-
-.team-image {
-  width: 2000px;
-  height: 440px;
-}
-
-.team-image div {
-  background-size: cover;
-  background-position: center;
-}
-
-.team-image-inner {
-  width: 100%;
-  height: 100%;
-  background-image: url('../images/team.png');
-  background-size: cover;
-  background-position: center;
+  font-size: 14px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  font-family: 'Montserrat-Medium';
 }
 
 .logo {
@@ -234,18 +352,43 @@ h2 {
   width: 350px;
 }
 
-@media screen and (max-width: 2200px) {
+@media screen and (max-width: 2560px) and (min-width: 2221px) {
+  .main-page {
+    padding: 0 404px;
+  }
+
+  .stats {
+    margin-top: 265px;
+  }
+}
+
+/* Адаптивность для больших настольных экранов - В ДИАПАЗОНЕ от 769px до 2220px */
+@media screen and (min-width: 769px) and (max-width: 2220px) {
+  /* Стили из первого медиа-запроса */
+  .about-us-text {
+    font-size: 22px;
+    color: #000000;
+    text-align: left;
+    max-width: 800px;
+    font-family: 'Montserrat-Medium';
+    max-width: 86%;
+  }
+
+  .copyright {
+    font-size: 18px;
+    margin-top: 75px;
+  }
   
   .team-image {
-    width: 1440px;  
+    width: 100%;  
     height: 480px;
   }
 
-
   .nav ul li a {
-    font-size: 16px;
+    font-size: 18px;
     gap: 10px;
   }
+  
   .logo {
     font-size: 10px;
     width: 212px;
@@ -259,34 +402,65 @@ h2 {
 
   .hero {
     height: 626px;
-    margin-top: 70px;
+    padding-top: 55px;
   }
 
+  .hero h2 {
+    font-size: 60px;
+  }
+
+  /* Самая важная часть - стили для статистики */
   .stats {
-    height: 131px;
+    height: 228px;
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    background-color: #ffffff;
+    text-align: center;
+    grid-template-columns: none;
+    grid-gap: 0;
+    margin-top: 220px;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0;
   }
 
   .stat-item h3 {
     font-size: 64px;
+    margin-top: 1.6rem;
+    margin-bottom: 0;
   }
 
   .stat-item p {
     font-size: 24px;
-    margin-top: -2.9rem;
+    color: #000000;
   }
 
   h2 {
     font-size: 64px;
   }
+  
   .header {
-      width: calc(80% - 52px); /* Изменили с 83% на 80% */
-      height: 50px;
-      padding: 10px 26px;
-      top: 8px;
-      left: 0;
-      right: 0;
-    }
+    width: calc(100% - 52px);
+    height: 70px;
+    padding: 10px 26px;
+    top: 8px;
+    left: 0;
+    right: 0;
+    border-radius: 10px;
   }
+  
   .footer {
     padding: 32px 26px;
   }
@@ -297,27 +471,398 @@ h2 {
 
   .footer-nav ul li a,
   .contact-info a {
-    font-size: 24px;
-  }
-
-  .copyright {
-    font-size: 24px;
+    font-size: 18px;
   }
 
   html, body {
-    padding: 8px 96px;
+    padding: 8px 26px;
   }
-
-
   
-  .team-image div {
+  .team-image img {
     width: 100%;
-    height: 100%;
+  }
+  
+  .main-page {
+    width: 100%;
+    max-width: none;
+    background-color: #FFFAF3;
   }
 
-  .team-image-inner {
-    height: 350px;
+  /* Обновленная сетка для секции "О нас" */
+  .about-us-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    position: relative;
+    margin-bottom: 60px;
+    min-height: 700px;
   }
+  
+  .about-us-content {
+    width: 100%;
+    max-width: 600px;
+    padding-right: 20px;
+  }
+  
+  /* Квадратный контейнер для изображения */
+  .image-container {
+    position: absolute;
+    width: 800px;
+    height: 759px;
+    background-image: url(../images/team-image.png);
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    right: 0;
+    top: -87px;
+}
+
+.benefits-list {
+  margin-bottom: 120px;
+}
+
+}
+
+
+/* Адаптивность для небольших настольных экранов и планшетов в горизонтальной ориентации */
+@media screen and (max-width: 1400px) {
+  .header {
+    width: calc(95% - 52px);
+  }
+  
+  .logo h1 {
+    font-size: 18px;
+  }
+  
+  .nav ul {
+    gap: 1.5rem;
+  }
+  
+  .nav ul li a {
+    font-size: 14px;
+  }
+  
+  .btn-primary {
+    font-size: 14px;
+    width: 200px;
+    padding: 0.7rem 1.5rem;
+  }
+  
+  h2 {
+    font-size: 48px;
+  }
+  
+  .team-image {
+    width: 100%;
+    max-width: 1200px;
+    height: 380px;
+  }
+  
+  .stat-item h3 {
+    font-size: 48px;
+  }
+  
+  .stat-item p {
+    font-size: 18px;
+  }
+  
+  .stats {
+    flex-wrap: wrap;
+    height: auto;
+    padding-bottom: 80px;
+  }
+  
+  .stat-item {
+    width: 30%;
+    margin-bottom: 30px;
+  }
+  
+  .footer {
+    flex-direction: row;
+    padding: 30px 20px;
+  }
+  
+  .footer-nav {
+    gap: 50px;
+  }
+  
+  .social-links {
+    gap: 20px;
+  }
+  
+  html, body {
+    padding: 8px 60px;
+  }
+}
+
+/* Адаптивность для планшетов в вертикальной ориентации */
+@media screen and (max-width: 1024px) {
+
+  .hero h2 {
+    text-align: left;
+    font-size: 30px;
+  }
+
+  .header {
+    width: calc(95% - 20px);
+    padding: 10px 10px;
+  }
+  
+  .logo h1 {
+    font-size: 16px;
+  }
+  
+  .btn-primary {
+    font-size: 12px;
+    width: 150px;
+    padding: 0.6rem 1rem;
+  }
+  
+  .hero {
+    margin-top: 60px;
+    height: auto;
+  }
+  
+  h2 {
+    font-size: 40px;
+  }
+  
+  .team-image {
+    height: 300px;
+  }
+  
+  .stats {
+    padding-bottom: 50px;
+  }
+  
+  .stat-item {
+    width: 45%;
+  }
+  
+  .stat-item h3 {
+    font-size: 40px;
+  }
+  
+  .stat-item p {
+    font-size: 13px;
+    margin-top: 0.2rem;
+  }
+  
+  .about-us-text {
+    font-size: 16px;
+  }
+
+  .benefits-list {
+    margin-bottom: 50px;
+  }
+  
+  .benefits-list li {
+    font-size: 16px;
+  }
+  
+  .footer {
+    flex-wrap: wrap;
+  }
+  
+  .footer-left, .footer-center, .footer-right {
+    width: 100%;
+    margin-bottom: 30px;
+    text-align: left;
+  }
+  
+  .footer-nav {
+    justify-content: center;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
+  .contact-info {
+    align-items: center;
+  }
+  
+  html, body {
+    padding: 8px 30px;
+  }
+  
+  .full-width-bg {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+/* Адаптивность для мобильных устройств */
+@media screen and (max-width: 768px) {
+  html,body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .main-page {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header {
+    width: 100%;
+    padding: 20px;
+    border-radius: 0;
+  }
+
+  .stats {
+    width: 100%;
+    padding: 150px 30px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 20px;
+    box-sizing: border-box;
+    background-color: transparent;
+  }
+
+  body {
+    padding: 0;
+    background-color: #FFFBF6;
+  }
+
+  .team-image {
+    height: 415px;
+  }
+
+  /* Скрываем последний элемент на мобильных устройствах */
+  .stat-item:last-child {
+    display: none;
+  }
+  
+  .stat-item {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .stat-item h3 {
+    font-size: 40px;
+    margin: 0;
+    font-family: 'Montserrat-SemiBold';
+  }
+  
+  .stat-item p {
+    font-size: 14px;
+    margin-top: 5px;
+    font-family: 'Montserrat-Medium';
+  }
+
+  .about-us-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: -200px;
+  }
+  
+  .image-container {
+    width: 100%;
+    height: 300px;
+    background-image: url('../images/team-image.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin-top: 82px;
+  }
+
+  .about-header-block p {
+    font-size: 13px;
+    padding-bottom: 30px;
+  }
+
+}
+
+/* Адаптивность для маленьких мобильных устройств */
+@media screen and (max-width: 480px) {
+  body {
+    padding: 5px 10px;
+  }
+  
+  .header {
+    top: 5px;
+  }
+  
+  .logo h1 {
+    font-size: 16px;
+  }
+  
+  h2 {
+    font-size: 24px;
+  }
+  
+  .hero {
+    margin-top: 70px;
+  }
+  
+  .team-image {
+    height: 415px;
+  }
+  
+  .stat-item h3 {
+    font-size: 50px;
+  }
+  
+  .stat-item p {
+    font-size: 12px;
+    margin-top: 0rem;
+}
+  
+  .about-header-block h2,
+  .about-benefits-block h2 {
+    font-size: 24px;
+  }
+  
+  .about-description p{
+    font-size: 24px;
+  }
+  
+  .benefits-list li {
+    font-size: 14px;
+  }
+  
+  .about-right {
+    height: 200px;
+  }
+  
+  .reviews-page h1 {
+    font-size: 24px;
+  }
+  
+  .article-card {
+    padding: 15px;
+  }
+  
+  .article-card h2 {
+    font-size: 18px;
+  }
+  
+  .article-card p {
+    font-size: 12px;
+  }
+  
+  .footer-left h3 {
+    font-size: 20px;
+  }
+  
+  .footer-nav ul li a,
+  .contact-info a {
+    font-size: 14px;
+  }
+  
+  .contact-info a[href^="tel:"] {
+    font-size: 18px;
+  }
+}
 
 /* Добавляем базовые анимации */
 @keyframes fadeInUp {
@@ -357,211 +902,194 @@ h2 {
 .stat-item:hover h3 {
   color: #7AB469;
 }
+
+/* Исправление секции "Про нас" */
 .full-width-bg {
-  background-color: #ffffff; /* Оранжевый цвет фона */
-  width: 100vw; /* На всю ширину viewport */
-  margin-left: calc(-50vw + 50%); /* Центрирование с учетом отступов */
+  background-color: #FFFAF3; /* Правильный бежевый цвет фона */
+  width: 100%;
+  margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
-  padding-left: 196px; /* Сохраняем внутренние отступы */
-  padding-right: 198px;
+  padding: 60px 0;
   box-sizing: border-box;
-  position: relative; /* Для контекста позиционирования */
-  left: 0;
-  overflow-x: hidden; /* Предотвращаем горизонтальную прокрутку */
-}
-
-/* Анимация для кнопки */
-.btn-primary {
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-}
-
-.btn-primary:active {
-  transform: translateY(0);
-}
-
-/* Анимации для навигации */
-.nav ul li a {
-  transition: color 0.3s ease;
   position: relative;
 }
 
-.nav ul li a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -5px;
-  left: 0;
-  background-color: #7AB469;
-  transition: width 0.3s ease;
+/* Контейнер для содержимого с правильными отступами */
+.about-us {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
 }
 
-.nav ul li a:hover::after {
+/* Сетка с равными колонками */
+.about-us-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Две равные колонки */
+  gap: 40px;
+  position: relative;
+  margin-bottom: 60px;
+}
+
+/* Левая колонка с текстом */
+.about-us-content {
   width: 100%;
+  padding-right: 20px;
 }
 
-/* Анимации для футера */
-.footer-nav ul li a {
-  transition: color 0.3s ease, transform 0.2s ease;
-  display: inline-block;
+/* Заголовки с правильными отступами */
+.about-us-content h2 {
+  font-size: 64px;
+  color: #000;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
-.footer-nav ul li a:hover {
-  transform: translateX(5px);
-}
-
-/* Анимация для социальных иконок */
-.social-links img {
-  transition: transform 0.3s ease;
-}
-
-.social-links img:hover {
-  transform: translateY(-3px);
-}
-
-/* Анимация для контактной информации */
-.contact-info a {
-  transition: color 0.3s ease;
-}
-
-.contact-info a:hover {
-  color: #7AB469;
-}
-
+/* Текст с правильным цветом и отступами */
 .about-us-text {
-  font-size: 24px;
-  color: #000000;
-  text-align: left;
-  max-width: 800px;
-  font-family: 'Montserrat-Medium';
+  font-size: 18px;
+  line-height: 1.6;
+  color: #000;
+  margin-bottom: 40px;
 }
 
-.about-us-image {
-  width: 100px;
-  height: 100px;
-  background-image: url('../images/team-image.png');
-  background-size: cover;
-  background-position: center;
-  border-radius: 15px;
+/* Заголовок "Чому ми?" */
+.about-us-content h2:last-of-type {
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
-.benefit-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+/* Список преимуществ */
+.benefits-list {
+  padding-left: 30px;
 }
 
 .benefits-list li {
-  margin-bottom: 1rem;
-  font-size: 20px;
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #000;
 }
 
+/* Правая колонка с изображением */
+.about-right {
+  display: none;
+}
+
+/* Само изображение */
+.about-image {
+  display: none;
+}
+
+/* Adjust container to full width since there's no image */
+.about-container {
+  display: block;
+  width: 100%;
+}
+
+.about-left {
+  width: 100%;
+  padding-right: 0;
+}
+
+/* Блок отзывов */
 .reviews-link {
-  margin: 40px 0;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .reviews-grid {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px 30px;
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 30px;
   align-items: center;
-  padding: 20px 30px;
-  background: #ffffff;
-  border-radius: 10px;
   max-width: 550px;
-  height: auto;
 }
 
-.reviews-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+/* Стили для сетки отзывов - чтобы было по 3 в ряд */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 50px;
 }
 
-.reviews-text h3 {
-  font-size: 32px;
-  color: #000000;
-  margin: 0 0 5px 0;
-}
-
-.reviews-text p {
-  font-size: 18px;
-  color: #000000;
-  margin: 0;
-  font-family: 'Montserrat-Medium';
-}
-
-.reviews-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.arrow-icon {
-  width: 40px;
-  height: 40px;
-}
-
-.vector-btn {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 15px 25px;
-  background: #7AB469;
-  color: white;
-  text-decoration: none;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-}
-
-.vector-btn:hover {
-  background: #689756;
-  transform: translateX(5px);
-}
-
-.vector-btn svg {
-  transition: transform 0.3s ease;
-}
-
-/* Новый контейнер для секции about-us */
-.about-section-wrapper {
-  background-color: #FFFAF3;
-  width: 100%;
-  margin-left: -120px; /* компенсируем отступ слева */
-  margin-right: -120px; /* компенсируем отступ справа */
-  padding-left: 120px; /* восстанавливаем внутренний отступ */
-  padding-right: 120px; /* восстанавливаем внутренний отступ */
-  overflow: hidden; /* для предотвращения горизонтальной прокрутки */
-}
-
-.vector-btn:hover svg {
-  transform: translateX(5px);
+/* Медиа-запросы для адаптивности сетки */
+@media screen and (max-width: 1200px) {
+  .articles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media screen and (max-width: 768px) {
-  .reviews-grid {
+
+  .team-image img {
+    height: 300px;
+  }
+
+  .articles-grid {
     grid-template-columns: 1fr;
-    text-align: center;
   }
   
-  .reviews-button {
-    justify-self: center;
+  .reviews-page h1 {
+    font-size: 48px;
+  }
+
+  .article-card h2 {
+    font-size: 17px;
   }
 }
 
+.reviews-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.leave-review-btn {
+  background: #7AB469;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Montserrat-SemiBold';
+  font-size: 18px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 235px;
+}
+
+.leave-review-btn:hover {
+  background: #689756;
+  transform: translateY(-2px);
+}
+
+.reviews-page h1 {
+  font-size: 64px;
+  font-family: 'Montserrat-SemiBold';
+  margin: 0;
+}
+
+/* Стиль для контейнера about-us */
+.about-us {
+  position: relative;
+  padding: 60px 0;
+  overflow: visible;
+}
+
+/* Исправление сетки */
 .about-us-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 40px;
   align-items: start;
-  max-width: 100%;
+  max-width: 99%;
   position: relative;
 }
 
+/* Контент слева */
 .about-us-content {
   width: 100%;
   max-width: 800px;
@@ -570,90 +1098,873 @@ h2 {
   z-index: 1;
 }
 
+/* Текст и заголовки */
+.about-us-text {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+/* Заголовки в секции */
+.about-us-content h2 {
+  font-size: 64px;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+.about-us-content h2:first-child {
+  margin-top: 0;
+}
+
+.about-us-content h2:last-of-type {
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
+/* Список преимуществ */
+.benefits-list {
+  list-style-type: disc;
+  padding-left: 25px;
+  margin-top: 10px;
+}
+
+.benefits-list li {
+  margin-bottom: 1rem;
+  font-size: 20px;
+}
+
+/* Изображение справа */
 .image-container {
   position: absolute;
   width: 800px;
-  height: 889px;
+  height: 800px;
   background-image: url('../images/team-image.png');
   background-size: cover;
   background-position: center;
   border-radius: 10px;
   right: 0;
-  top: 58px;
+  top: -87px;
 }
 
-/* Медиа-запросы для разных размеров экрана */
-@media screen and (max-width: 2200px) {
+/* Блок с отзывами внизу */
+.reviews-link {
+  margin: 40px 0;
+}
+
+/* Адаптивность для разных экранов */
+@media screen and (max-width: 1600px) {
   .image-container {
-    width: 800px;
-    height: 809px;
+    height: 944px;
   }
-}
 
-@media screen and (max-width: 1800px) {
-  .image-container {
-    width: 600px;
+  .about-us-grid {
+    height: 600px;
   }
-}
-
-@media screen and (max-width: 1400px) {
+  
   .image-container {
     width: 500px;
+  }
+  
+  .about-us-content h2 {
+    font-size: 56px;
+  }
+  
+  .about-us-text {
+    font-size: 20px;
+  }
+  
+  .benefits-list li {
+    font-size: 20px;
   }
 }
 
 @media screen and (max-width: 1200px) {
   .about-us-grid {
+    height: 550px;
+  }
+  
+  .image-container {
+    width: 450px;
+  }
+  
+  .about-us-content h2 {
+    font-size: 48px;
+  }
+  
+  .about-us-text {
+    font-size: 18px;
+  }
+  
+  .benefits-list li {
+    font-size: 18px;
+  }
+}
+
+
+
+@media screen and (max-width: 992px) {
+  .about-us-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    height: auto;
+  }
+  
+  .about-us-content {
+    max-width: 100%;
   }
 
   .image-container {
     position: relative;
     width: 100%;
-    height: 350px;
-    margin-top: 20px;
+    height: 400px;
+    order: 2;
   }
 
   .about-us-content {
-    max-width: 100%;
-  }
-}
-
-/* Медиа-запросы для адаптивного текста */
-@media screen and (max-width: 2200px) {
-  .about-us-text {
-    font-size: 18px;
-    max-width: 600px; 
-  }
-}
-
-@media screen and (max-width: 1800px) {
-  .about-us-text {
-    font-size: 18px;
-  }
-}
-
-@media screen and (max-width: 1400px) {
-  .about-us-text {
-    font-size: 16px;
+    order: 1;
   }
 }
 
 @media screen and (max-width: 768px) {
+
+  .article-card p {
+    font-size: 11px;
+  }
+
+  .about-us-grid {
+    margin-bottom: -240px;
+  }
+
+  .about-us-content h2 {
+    font-size: 40px;
+  }
+  
   .about-us-text {
-    font-size: 14px;
-    padding: 0 10px;
+    font-size: 16px;
+  }
+  
+  .benefits-list li {
+    font-size: 16px;
+  }
+  
+  .image-container {
+    height: 350px;
   }
 }
 
-/* Новый контейнер для секции about-us */
-.about-section-wrapper {
-  background-color: #FFFAF3;
+@media screen and (max-width: 576px) {
+  .about-us-content h2 {
+    font-size: 32px;
+  }
+  
+  .image-container {
+    height: 300px;
+  }
+}
+
+/* Улучшенный CSS для секции "Про нас" */
+.about-section {
   width: 100%;
-  margin-left: -120px; /* компенсируем отступ слева */
-  margin-right: -120px; /* компенсируем отступ справа */
-  padding-left: 120px; /* восстанавливаем внутренний отступ */
-  padding-right: 120px; /* восстанавливаем внутренний отступ */
-  overflow: hidden; /* для предотвращения горизонтальной прокрутки */
+  background-color: #FFFAF3;
+  padding: 80px 0;
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: 50% 50%; /* Две равные колонки */
+  width: 100%; /* Растягиваем на всю ширину */
+  max-width: none; /* Убираем ограничение по максимальной ширине */
+  gap: 0; /* Убираем отступ между колонками */
+}
+
+/* Левая колонка с контентом */
+.about-left {
+  padding-right: 60px; /* Сохраняем отступ справа */
+  padding-left: 0; /* Убираем отступ слева */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Распределяем содержимое: контент - вверху, отзывы - внизу */
+  height: 100%; /* Важно для работы space-between */
+}
+
+/* Стили для блока отзывов без теней */
+.reviews-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: none; /* Убираем тень */
+}
+
+.reviews-text h3 {
+  font-size: 28px;
+  margin: 0 0 5px 0;
+  font-family: 'Montserrat-SemiBold', sans-serif;
+  color: #000;
+}
+
+.reviews-text p {
+    font-size: 16px;
+  margin: 0;
+  font-family: 'Montserrat-Medium', sans-serif;
+  color: #333;
+}
+
+.reviews-arrow a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: #7AB469;
+  border-radius: 50%;
+  transition: none; /* Убираем анимации */
+}
+
+.reviews-arrow img {
+  width: 24px;
+  height: 24px;
+}
+
+.reviews-arrow a:hover {
+  transform: none; /* Убираем эффект при наведении */
+}
+
+/* Адаптивность */
+@media screen and (max-width: 1024px) {
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .about-image {
+        padding-bottom: 75%;
+    }
+    
+    .about-header-block h2,
+    .about-benefits-block h2 {
+        font-size: 48px;
+    }
+    
+    .reviews-text h3 {
+        font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+    .about-header-block h2,
+    .about-benefits-block h2 {
+        font-size: 36px;
+    }
+    
+    .reviews-card {
+        padding: 15px 20px;
+    }
+    
+    .reviews-text h3 {
+        font-size: 24px;
+    }
+    
+    .reviews-text p {
+        font-size: 16px;
+    }
+}
+/* Восстанавливаем стили для основных отзывов (карточки Іван Іванович) */
+.article-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  transition: transform 0.3s ease;
+  position: relative;
+  min-height: 200px;
+  box-shadow: none; /* Убираем тень */
+  margin-bottom: 20px;
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+}
+
+.article-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.article-card h2 {
+  margin: 0;
+  font-family: 'Montserrat-SemiBold';
+  text-align: left;
+}
+
+.review-date {
+  color: #666;
+  font-size: 12px;
+  margin: 0;
+  font-family: 'Montserrat-Medium';
+}
+
+.article-card p {
+  line-height: 1.2;
+  color: #333;
+  margin-bottom: 50px;
+  padding-right: 20px;
+  font-family: 'Montserrat-Medium';
+}
+
+.article-author {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+/* Обновляем стиль кружка со стрелкой для всех стрелок на сайте */
+.arrow-circle, 
+.reviews-arrow a,
+.article-link .arrow-circle {
+  width: 50px;
+  height: 50px;
+  background-color: #7AB469;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Позиционирование для стрелок в карточках */
+.article-card .arrow-circle {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+}
+
+/* Поворачиваем стрелку на 45 градусов (вправо-вниз) */
+.arrow-circle svg,
+.reviews-arrow svg,
+.article-link svg {
+  width: 30px;
+  height: 30px;
+  transform: rotate(45deg); /* Поворот на 45 градусов */
+}
+
+/* Добавляем hover-эффект для всех стрелок */
+.arrow-circle:hover,
+.reviews-arrow a:hover,
+.article-link .arrow-circle:hover {
+  background-color: #689756;
+  transform: translateX(3px);
+}
+
+/* Отдельные стили для блока превью отзывов */
+.reviews-preview-block .reviews-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: none;
+}
+
+/* Создаем отдельный класс для блока превью отзывов в секции "О нас" */
+.about-preview-reviews {
+  margin-top: auto; /* Отправляем в конец flex-контейнера */
+  margin-bottom: 40px; /* Отступ снизу */
+}
+
+/* Сохраняем стили для приватного блока без теней */
+.about-preview-reviews .reviews-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: none;
+}
+
+/* Убираем синий фон и корректируем отступы заголовка "Про нас" */
+.about-section h2,
+.about-header-block h2:first-child {
+  margin-top: 0;
+  padding-top: 0; /* Убираем верхний отступ */
+  background-color: transparent; /* Убираем синий фон */
+  padding-left: 0; /* Убираем левый отступ */
+  padding-bottom: 10px; /* Сохраняем небольшой отступ снизу */
+  border-radius: 0; /* Убираем скругление углов */
+}
+
+/* Убираем переопределения на маленьких экранах */
+@media screen and (max-width: 768px) {
+  .about-section h2,
+  .about-header-block h2:first-child {
+    padding-top: 0;
+    padding-left: 0;
+  }
+}
+
+/* Базовые настройки для плавного скролла */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 120px;
+}
+
+/* Стили для ссылок в статистике */
+.stat-item h3 a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.stat-item h3 a:hover {
+  color: #7AB469;
+  transform: translateY(-5px);
+}
+
+/* Підсвічування цільового елемента після переходу по якорю */
+.about-header-block:target,
+.about-benefits-block:target,
+.reviews-preview-block:target,
+.reviews-page:target {
+  animation: highlight 2s ease;
+}
+
+/* Стиль для цифр статистики при клике */
+.stat-item h3 a:active {
+  color: #7AB469;
+  transform: scale(1.2);
+}
+
+/* Стилі для модального вікна відгуків */
+.review-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.review-modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 12px;
+    width: calc(100% - 40px);
+    max-width: 500px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    position: relative;
+}
+
+#reviewForm {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#reviewForm input, 
+#reviewForm textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.review-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.modal-header h2 {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: left;
+    margin: 0;
+}
+
+.close-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Стилі форми */
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#reviewForm input, 
+#reviewForm textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+}
+
+#reviewForm input:focus, 
+#reviewForm textarea:focus {
+    outline: none;
+    border-color: #7AB469;
+    background-color: #fff;
+}
+
+#reviewForm input.error, 
+#reviewForm textarea.error {
+    border-color: #e74c3c;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 5px;
+    font-weight: 500;
+  }
+
+#reviewForm textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-btn {
+  width: 100%;
+    padding: 15px;
+    background-color: #7AB469;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    position: relative;
+    font-family: 'Montserrat-SemiBold';
+}
+
+.submit-btn:hover {
+    background-color: #659A5A;
+}
+
+.submit-btn:disabled {
+    background-color: #a9d49c;
+    cursor: not-allowed;
+}
+
+/* Індикатор завантаження */
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Повідомлення про статус */
+.status-success, .status-error {
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.status-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.status-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Стили для модального окна записи к врачу */
+.appointment-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.appointment-modal.active {
+    display: flex;
+}
+
+.appointment-modal .modal-content {
+    background-color: white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.appointment-modal .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.appointment-modal .header-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.doctor-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.appointment-modal .modal-header h2 {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: left;
+    margin: 0;
+}
+
+.appointment-modal .close-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Стили формы */
+.appointment-modal .form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#appointmentForm input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+}
+
+#appointmentForm input:focus {
+    outline: none;
+    border-color: #7AB469;
+    background-color: #fff;
+}
+
+#appointmentForm input.error {
+    border-color: #e74c3c;
+}
+
+/* Стили для кастомного выпадающего списка */
+.select-wrapper {
+    position: relative;
+}
+
+.custom-select {
+    position: relative;
+    width: 100%;
+}
+
+.select-selected {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.select-selected:after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-right: 2px solid #555;
+    border-bottom: 2px solid #555;
+    transform: rotate(45deg);
+    margin-right: 10px;
+}
+
+.select-selected.active:after {
+    transform: rotate(-135deg);
+}
+
+.select-items {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background-color: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 0 0 8px 8px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.select-item {
+    padding: 12px 15px;
+    cursor: pointer;
+}
+
+.select-item:hover {
+    background-color: #f9f9f9;
+}
+
+.select-item.selected {
+    background-color: #e9f5e9;
+}
+
+.select-hide {
+    display: none;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #7AB469;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    position: relative;
+    font-family: 'Montserrat-SemiBold';
+}
+
+.submit-btn:hover {
+    background-color: #659A5A;
+}
+
+/* Стилі для мобільних пристроїв */
+@media screen and (max-width: 768px) {
+    .modal-content {
+        width: calc(100% - 30px);
+        padding: 20px;
+        margin: 15px;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+  .about-image {
+    height: 109%;
+  }
+}
+.team-image img {
+  width: 100%;
+}
+
+html, body {
+  padding: 8px 27px;
+  width: 100%;
+  margin: 0;
+}
+
+.hero {
+  height: 480px;
+  margin-top: -20px;
+}
+
+  .stats {
+      flex-wrap: nowrap;
+      height: auto;
+      padding-bottom: 0px;
+      border-radius: 15px;
+  }
+}
+
+.statistics-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+}
+
+.statistic-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statistic-number {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.statistic-text {
+  font-size: 18px;
+  color: #333;
+}
+
+/* Адаптив для планшетов */
+@media screen and (max-width: 1024px) {
+  .statistics-container {
+    gap: 20px; /* Уменьшаем отступы между элементами */
+  }
+
+  .statistic-item {
+    flex: 0 1 auto; /* Убираем автоматическое растягивание */
+    min-width: 150px; /* Минимальная ширина элемента */
+  }
+
+  .statistic-number {
+    font-size: 36px; /* Уменьшаем размер цифр */
+  }
+
+  .statistic-text {
+    font-size: 14px; /* Уменьшаем размер текста */
+  }
 }

@@ -10,27 +10,26 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
-    justify-items: start;
+    justify-items: center;
 }
 
 .specialist-card {
     width: 320px;
-    height: 545px;
-
+    height: 560px;
     border-radius: 12px;
-    overflow: hidden;
-    animation: fadeInUp 0.6s ease-out;
-    animation-fill-mode: both;
-    transition: transform 0.3s ease;
+    
+    position: relative;
+    top: 0;
+    
+    transition: top 0.3s ease;
 }
 
-.specialist-card:nth-child(1) { animation-delay: 0.1s; }
-.specialist-card:nth-child(2) { animation-delay: 0.2s; }
-.specialist-card:nth-child(3) { animation-delay: 0.3s; }
-.specialist-card:nth-child(4) { animation-delay: 0.4s; }
-
 .specialist-card:hover {
-    transform: translateY(-5px);
+    top: -15px !important;
+}
+
+.specialist-card * {
+    transition: none;
 }
 
 .experience-badge {
@@ -38,25 +37,81 @@
     padding: 8px 16px;
     border-radius: 4px;
     display: inline-block;
-    margin: 16px;
-    float: right;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 3;
     font-family: 'Montserrat-SemiBold', sans-serif;
-    transition: background-color 0.3s ease;
 }
 
-.specialist-card:hover .experience-badge {
-    background: #E7D5E7;
+.specialist-info-text {
+    max-height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;    
+    font-size: 16px;
+    font-family: 'Montserrat-Medium';
+    margin-top: 6px;
+    margin-left: 5px;
 }
 
 .specialist-image {
     width: 100%;
     height: 385px;
-    aspect-ratio: 1 / 1;
-    background-image: url('../images/ivan_eblanovich.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    animation: shrinkHeight 0.6s ease-out;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+}
+
+.doctor-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.doctor-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    opacity: 0;
+
+}
+
+.specialist-image:hover .doctor-img,
+.specialist-image:hover .doctor-video {
+}
+
+.specialist-image:hover .doctor-img {
+    opacity: 0;
+}
+
+.specialist-image:hover .doctor-video {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Добавляем JavaScript для автовоспроизведения видео при наведении */
+@media (hover: hover) {
+    .specialist-card-link:hover .doctor-video {
+        opacity: 1;
+        z-index: 2;
+    }
+    
+    .specialist-card-link:hover .doctor-img {
+        opacity: 0;
+    }
 }
 
 .specialist-info {
@@ -66,10 +121,11 @@
     justify-content: space-between;
     align-items: flex-start;
     border-radius: 6px;
+    height: 60px;
 }
 
 .specialist-name {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     margin-bottom: 8px;
     font-family: 'Montserrat-SemiBold', sans-serif;
@@ -77,12 +133,19 @@
 
 .specialist-position {
     color: #666;
-    font-family: 'Montserrat-Medium',;
+    font-family: 'Montserrat-Medium';
 }
 
 .arrow-icon {
-    font-size: 24px;
+    font-size: 18px;
     margin-top: 3px;
+    width: 16px;
+    height: 16px;
+}
+
+.arrow-icon img {
+    width: 100%;
+    height: 100%;
 }
 
 .specialist-info a {
@@ -97,14 +160,9 @@
     height: 50px;
     font-size: 18px;
     cursor: pointer;
-    transition: transform 0.3s ease;
     font-family: 'Montserrat-SemiBold', sans-serif;
     margin-top: 16px;
     border-radius: 12px;
-}
-
-.book-button:hover {
-    transform: scale(1.02);
 }
 
 @font-face {
@@ -115,7 +173,7 @@
 }
 
 .space {
-    height: 100px;
+    height: 25px;
 }
 
 .specialists-container h1 {
@@ -123,18 +181,28 @@
     font-size: 64px;
     font-weight: bold;
     margin-bottom: 20px;
-    animation: fadeInUp 0.8s ease-out;
     padding-bottom: 35px;
 }
 
-.arrow-icon img {
-    width: 18px;
-    height: 18px;
-    transition: transform 0.3s ease;
+.specialist-card .arrow-icon img,
+.specialist-card:hover .arrow-icon img {
+    transform: none !important;
+    -webkit-transform: none !important;
+    transition: none !important;
 }
 
-.specialist-card:hover .arrow-icon img {
-    transform: translateX(5px);
+.specialist-card::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: transparent;
+    transition: background-color 0.4s ease;
+}
+
+.specialist-card:hover::after {
+    background-color: #E7D5E7;
 }
 
 @keyframes fadeInUp {
@@ -155,4 +223,81 @@
     to {
         height: 385px;
     }
+}
+
+@keyframes hoverUp {
+    from { transform: translateY(0); }
+    to { transform: translateY(-15px); }
+}
+
+.specialist-card {
+    animation: fadeInUp 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.specialist-card:nth-child(1) { animation-delay: 0.1s; }
+.specialist-card:nth-child(2) { animation-delay: 0.2s; }
+.specialist-card:nth-child(3) { animation-delay: 0.3s; }
+.specialist-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes gridFadeIn {
+    to { opacity: 1; }
+}
+
+/* Стиль для обертки-ссылки */
+.specialist-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    cursor: pointer;
+}
+
+/* Теперь обновленный стиль для hover */
+.specialist-card-link:hover .specialist-card {
+    top: -15px !important;
+}
+
+/* Предотвращаем срабатывание кнопки "Записатися" внутри ссылки */
+.specialist-card .book-button {
+    position: relative;
+    z-index: 2;
+    pointer-events: auto;
+}
+
+/* Обработчик для кнопки, чтобы она не перенаправляла на doctor.html */
+.specialist-card-link .book-button {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 2560px) {
+    .specialists-container {
+        padding: 0 404px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 2220px) {
+    html, body {
+        padding: 8px 13px;
+        background-color: #FFFAF3;
+    }
+
+    .specialists-container {
+        padding: 0 1px;
+    }   
+}
+
+@media screen and (max-width: 768px) {
+    .specialists-container {
+        padding: 0 1px;
+    }   
+
+    .specialist-info{
+        max-height: 133%;
+    }
+
+    .specialist-info-text{
+        margin-top: 0px;
+    }
+    
+    
 }

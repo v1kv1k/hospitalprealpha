@@ -6,83 +6,119 @@
     <title>Наші фахівці</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/sp.css">
+    <link rel="stylesheet" href="../css/header.css">
 </head>
 <body>
     <!-- Додаємо хедер -->
     <header class="header">
-        <div class="logo">
-          <h1>Team Spirit Medical</h1>
-        </div>
-        <nav class="nav">
-          <ul>  
-            <li><a href="../index.html">Головна</a></li>
-            <li><a href="../pages/sp.html">Фахівці</a></li>
-            <li><a href="../pages/articles.html">Статті</a></li>
-            <li><a href="../pages/contacts.html">Контакти</a></li>
-            <li><a href="../pages/services.html">Послуги</a></li>
-            <li><a href="../pages/mycabinet.html">Мій кабінет</a></li>
-          </ul>
-        </nav>
-        <button class="btn-primary">Записатись</button>
-      </header>
+      <div class="logo">
+        <h1>Team Spirit Medical</h1>
+      </div>
+      <nav class="nav">
+        <button class="mobile-menu-toggle" aria-label="Відкрити меню">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 12H21" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 6H21" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 18H21" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <ul class="nav-menu">  
+          <li><a href="../index.html">Головна</a></li>
+          <li><a href="../pages/sp.html">Фахівці</a></li>
+          <li><a href="../pages/articles.html">Статті</a></li>
+          <li><a href="../pages/contacts.html">Контакти</a></li>
+          <li><a href="../pages/services.html">Послуги</a></li>
+          <li><a href="../pages/mycabinet.html">Мій кабінет</a></li>
+        </ul>
+      </nav>
+      <button class="btn-primary">Записатись</button>
+    </header>
     <div class="space"></div>
     <!-- Існуючий контент -->
     <div class="specialists-container">
         <h1 class="specialists-title">Наші фахівці</h1>
         <div class="specialists-grid">
             <!-- Specialist Card 1 -->
-            <div class="specialist-card">
-                <div class="experience-badge">Досвід 10 років</div>
-                <div class="specialist-image"></div>
-                <div class="specialist-info">
-                    <div>
-                        <div class="specialist-name">Іван Іванович</div>
-                        <div class="specialist-position">Посада</div>
+            <a href="doctor.html" class="specialist-card-link">
+                <div class="specialist-card">
+                    <div class="specialist-image">
+                        <div class="experience-badge">Досвід 10 років</div>
+                        <img src="../images/doctor_k.jpg" alt="Костянтин Мусін" class="doctor-img">
+                        <video class="doctor-video" muted loop playsinline>
+                            <source src="../images/doctorLive.mp4" type="video/mp4">
+                        </video>
                     </div>
-                    <a href="doctor.html"><span class="arrow-icon"><img src="../images/Arrow.svg" alt="Arrow"></span></a>
+                    <div class="specialist-info">
+                        <div class="specialist-info-text">
+                            <div class="specialist-name">Костянтин Мусін</div>
+                            <div class="specialist-position">Посада</div>
+                        </div>
+                        <span class="arrow-icon"><img src="../images/Arrow.svg" alt="Arrow"></span>
+                    </div>
+                    <button class="book-button">Записатися</button>
                 </div>
-                <button class="book-button">Записатися</button>
-            </div>
+            </a>
 
             <!-- Specialist Card 2 -->
-            <div class="specialist-card">
-                <div class="experience-badge">Досвід 10 років</div>
-                <div class="specialist-image"></div>
-                <div class="specialist-info">
-                    <div>
-                        <div class="specialist-name">Петро Петрович</div>
-                        <div class="specialist-position">Посада</div>
+            <a href="doctor.html" class="specialist-card-link">
+                <div class="specialist-card">
+                    <div class="specialist-image">
+                        <div class="experience-badge">Досвід 10 років</div>
+                        <img src="../images/doctor_k.jpg" alt="Костянтин Мусін" class="doctor-img">
+                        <video class="doctor-video" muted loop playsinline>
+                            <source src="../images/doctorLive.mp4" type="video/mp4">
+                        </video>
                     </div>
-                    <a href="doctor.html"><span class="arrow-icon"><img src="../images/Arrow.svg" alt="Arrow"></span></a>
+                    <div class="specialist-info">
+                        <div class="specialist-info-text">
+                            <div class="specialist-name">Костянтин Мусін</div>
+                            <div class="specialist-position">Посада</div>
+                        </div>
+                        <span class="arrow-icon"><img src="../images/Arrow.svg" alt="Arrow"></span>
+                    </div>
+                    <button class="book-button">Записатися</button>
                 </div>
-                <button class="book-button">Записатися</button>
-            </div>
+            </a>
 
-            <div class="specialist-card">
-                <div class="experience-badge">Досвід 10 років</div>
-                <div class="specialist-image"></div>
-                <div class="specialist-info">
-                    <div>
-                        <div class="specialist-name">Петро Петрович</div>
-                        <div class="specialist-position">Посада</div>
+            <a href="doctor.html" class="specialist-card-link">
+                <div class="specialist-card">
+                    <div class="specialist-image">
+                        <div class="experience-badge">Досвід 10 років</div>
+                        <img src="../images/doctor_k.jpg" alt="Костянтин Мусін" class="doctor-img">
+                        <video class="doctor-video" muted loop playsinline>
+                            <source src="../images/doctorLive.mp4" type="video/mp4">
+                        </video>
                     </div>
-                    <a href="doctor.html"><span class="arrow-icon"><img src="../images/Arrow.svg" alt="Arrow"></span></a>
+                    <div class="specialist-info">
+                        <div class="specialist-info-text">
+                            <div class="specialist-name">Іван Іванович</div>
+                            <div class="specialist-position">Посада</div>
+                        </div>
+                        <span class="arrow-icon"><img src="../images/Arrow.svg" alt="Arrow"></span>
+                    </div>
+                    <button class="book-button">Записатися</button>
                 </div>
-                <button class="book-button">Записатися</button>
-            </div>
+            </a>
 
-            <div class="specialist-card">
-                <div class="experience-badge">Досвід 10 років</div>
-                <div class="specialist-image"></div>
-                <div class="specialist-info">
-                    <div>
-                        <div class="specialist-name">Петро Петрович</div>
-                        <div class="specialist-position">Посада</div>
+            <a href="doctor.html" class="specialist-card-link">
+                <div class="specialist-card">
+                    <div class="specialist-image">
+                        <div class="experience-badge">Досвід 10 років</div>
+                        <img src="../images/doctor_k.jpg" alt="Костянтин Мусін" class="doctor-img">
+                        <video class="doctor-video" muted loop playsinline>
+                            <source src="../images/doctorLive.mp4" type="video/mp4">
+                        </video>
                     </div>
-                    <a href="doctor.html"><span class="arrow-icon"><img src="../images/Arrow.svg" alt="Arrow"></span></a>
+                    <div class="specialist-info">
+                        <div class="specialist-info-text">
+                            <div class="specialist-name">Костянтин Мусін</div>
+                            <div class="specialist-position">Посада</div>
+                        </div>
+                        <span class="arrow-icon"><img src="../images/Arrow.svg" alt="Arrow"></span>
+                    </div>
+                    <button class="book-button">Записатися</button>
                 </div>
-                <button class="book-button">Записатися</button>
-            </div>
+            </a>
 
             
         </div>
@@ -124,5 +160,50 @@
           <p class="copyright">© 2025 Team Spirit Medical. All rights reserved.</p>
         </div>
       </footer>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const videos = document.querySelectorAll('.doctor-video');
+          
+          // Функция для воспроизведения видео при наведении
+          function handleHover(videoElement) {
+            videoElement.play().catch(error => {
+              console.error('Ошибка автовоспроизведения:', error);
+            });
+          }
+          
+          // Функция для паузы видео при уходе мыши
+          function handleMouseLeave(videoElement) {
+            videoElement.pause();
+            videoElement.currentTime = 0;
+          }
+          
+          // Назначаем обработчики событий для всех карточек
+          document.querySelectorAll('.specialist-card').forEach(function(cardContainer) {
+            const video = cardContainer.querySelector('.doctor-video');
+            
+            cardContainer.addEventListener('mouseenter', function() {
+              handleHover(video);
+            });
+            
+            cardContainer.addEventListener('mouseleave', function() {
+              handleMouseLeave(video);
+            });
+            
+            // Блокируем контекстное меню для видео
+            video.addEventListener('contextmenu', function(e) {
+              e.preventDefault();
+              return false;
+            });
+          });
+          
+          // Добавляем атрибуты для предотвращения скачивания
+          videos.forEach(function(video) {
+            video.setAttribute('controlsList', 'nodownload');
+            video.setAttribute('disablePictureInPicture', '');
+            video.setAttribute('oncontextmenu', 'return false;');
+          });
+        });
+      </script>
+      <script src="../script.js"></script>
 </body>
 </html>

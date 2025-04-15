@@ -1,95 +1,32 @@
+/* Базовые стили */
 body {
   background-image: url('../images/contacts-bg.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 50px 88px;
-  font-weight: 500;
+  background-origin: padding-box;
+  background-clip: padding-box;
+  padding: 50px 14px;
   background-attachment: fixed;
 }
 
-.header {
-  padding: 0px 32px;
-  width: calc(83% - 64px);
-  height: 100px;
-  margin: 0 auto;
+/* Контент страницы */
+.page-container {
   display: flex;
-  align-items: center;
-  background: white;
-  justify-content: space-between;
-  border-radius: 10px;
-  position: fixed;
-  top: 10px;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  box-shadow: none;
-}
-
-.nav ul {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-  font-family: 'Montserrat-SemiBold', sans-serif;
-  font-size: 15px;
-}
-
-.nav ul li a {
-  text-decoration: none;
-  color: #000000;
-  font-family: 'Montserrat-SemiBold';
-  font-size: 25px; 
-  transition: color 0.3s ease;
-  position: relative;
-}
-
-.nav ul li a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -5px;
-  left: 0;
-  background-color: #7AB469;
-  transition: width 0.3s ease;
-}
-
-.nav ul li a:hover::after {
   width: 100%;
+  gap: 100px;
+  min-height: calc(100vh - 300px);
+  margin-top: 120px;
 }
 
-.nav ul li a:hover {
-  color: #7AB469;
+.left-section {
+  width: 66%;
+  padding-right: 0;
 }
 
-.btn-primary {
-  background: #7AB469;
-  color: white;
-  padding: 0.9rem 1.9rem;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-family: 'Montserrat-SemiBold';
-  font-size: 25px;
-  text-decoration: none;
-  color: #ffffff;
-  width: 334px;
-}
-
-.btn-primary:hover {
-  background: #7AB469;
-  color: rgb(30, 95, 62);
-}
-
-.logo {
-  font-size: 16px;
-  width: 350px;
-}
-
-.social-links img {
-  padding-top: 20px;
-  width: 40px;
-  height: 60px;
+.right-section {
+  width: 80%;
+  position: relative;
 }
 
 .title {
@@ -100,35 +37,7 @@ body {
   font-weight: 600;
 }
 
-/* Новая структура страницы */
-.page-container {
-  display: flex;
-  width: 100%;
-  gap: 225px;
-  min-height: calc(100vh - 300px);
-  margin-top: 30px;
-}
-
-.left-section {
-  width: 66%;
-  padding-right: 0;
-  margin-top: 0;
-}
-
-.right-section {
-  width: 80%;
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-}
-
-.map-wrapper {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  margin-top: 0;
-}
-
+/* Контакты */
 .contacts-info {
   display: flex;
   flex-direction: column;
@@ -138,410 +47,385 @@ body {
 .contact-item {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: flex-start !important;
   background: #fff;
   padding: 18px 20px;
   border-radius: 8px;
   width: 100%;
-  height: auto;
-  min-height: 60px;
-  font-size: 17px;
-  margin-bottom: 0;
-  font-family: 'Montserrat', sans-serif;
+  min-height: unset;
+  font-size: 23px;
   font-weight: 600;
 }
 
-/* Новый класс для простых контактов с центрированием */
 .contact-item-centered {
   align-items: center;
   position: relative;
-}
-
-/* Класс для элемента с расписанием */
-.contact-item-schedule {
-  align-items: flex-start;
 }
 
 .icon {
   width: 24px;
   height: 24px;
   margin-right: 15px;
-  margin-left: 0;
-  margin-bottom: 0;
   flex-shrink: 0;
+  padding-top: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-/* Иконка в элементе с расписанием должна быть выровнена по верху */
-.contact-item-schedule .icon {
-  margin-top: 3px;
-}
-
-/* Иконка в центрированных элементах не нуждается в отступе сверху */
-.contact-item-centered .icon {
-  margin-top: 0;
 }
 
 .icon img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  max-width: 24px;
+  max-height: 24px;
+}
+
+.center-icon {
+  align-items: center !important;
+}
+
+.center-icon .icon {
+  padding-top: 0;
   margin-top: 0;
 }
 
-
-.schedule {
-  background: #fff;
-  padding: 15px;
-  border-radius: 8px;
-  width: 100%;
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-.schedule .icon {
-  vertical-align: top;
-  margin-top: 0;
-  flex-shrink: 0;
-}
-
-.schedule-header {
+.contact-item .phone-header {
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
+  width: 100%;
 }
 
-.schedule-header h3 {
-  margin: 0;
-  font-weight: 500;
-  font-size: 18px;
-  color: #000;
-}
-
-.schedule-details {
-  padding-left: 0;
-}
-
-.schedule-section {
-  margin-bottom: 10px;
-}
-
-.schedule-section:last-child {
-  margin-bottom: 0;
-}
-
-.schedule-section h4 {
-  margin-bottom: 8px;
-  font-size: 16px;
-  color: #666;
-  margin-left: 0;
-  font-weight: 500;
-}
-
-.schedule-section p {
-  margin: 4px 0;
-  font-size: 16px;
-  margin-left: 0;
-  color: #333;
-}
-
+/* Карта */
 #map-container {
-  width: 100%;
-  height: 655px;
-  border-radius: 8px;
-  margin-top: 0;
-  transition: all 0.3s ease;
-}
-
-/* Стили для кнопки увеличения карты */
-.map-resize-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 1000;
-  background: white;
-  border: none;
-  border-radius: 4px;
-  padding: 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.map-resize-btn svg {
-  width: 20px;
-  height: 20px;
-  fill: #555;
-}
-
-/* Стили для увеличенной карты */
-.map-expanded #map-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 9999;
-  border-radius: 0;
+  width: 102%;
+  height: 886px;
+  border-radius: 5px;
   margin-top: 0;
 }
 
-.map-expanded .map-resize-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-}
-
-/* Медиа-запросы для адаптивного дизайна */
-@media (max-width: 1200px) {
+@media screen and (max-width: 2560px) {
   .page-container {
-    flex-direction: column;
-    margin-top: 40px;
+    padding: 0 273px;
+  }
+
+  #phone-block {
+    padding: 17px 20px;
+  }
+  
+  /* Стили для иконок на больших экранах */
+  .icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+  }
+  
+  .icon img {
+    max-width: 30px;
+    max-height: 30px;
+  }
+}
+
+/* Медиа запросы */
+@media screen and (max-width: 2220px) {
+  body {
+    padding: 50px 5px;
+  }
+
+  #main-phone {
+    margin-top: -8px;
+  }
+
+  #map-container {
+    width: 100%;
+    height: 886px;
+    border-radius: 5px;
+    margin-top: 0;
+  }
+
+  .title {
+    font-size: 50px;
+  }
+
+  .page-container {
+    display: flex;
+    width: 100%;
+    gap: 280px;
+    min-height: calc(100vh - 300px);
+    margin-top: 76px;
+    padding: 0 0px;
+  }
+
+  .contact-item {
+    font-size: 23px;
+  }
+
+  /* Стили для иконок на 2220px */
+  .icon {
+    width: 36px;
+    height: 36px;
+    margin-right: 20px;
+    padding-top: 0;
+  }
+  
+  .icon img {
+    max-width: 36px;
+    max-height: 36px;
+  }
+  
+  .contact-item:has(.icon img[src$="clock-icon.svg"]) .icon {
+    margin-top: 8px;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .phone-dropdown {
+    position: absolute;
+    top: 42px;
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    z-index: 1000;
+  }
+
+  #phone-block {
+    position: relative;
+  }
+
+  #main-phone {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  #toggle-arrow {
+    transition: transform 0.3s ease;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  #toggle-arrow img {
+    width: 16px;
+    height: 16px;
+  }
+
+  #main-phone span:first-child {
+    margin-right: auto;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+  }
+  
+  .icon img {
+    max-width: 24px;
+    max-height: 24px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .page-container {
+    gap: 80px;
+  }
+
+  .contact-item {
+    font-size: 17px;
+  }
+
+  .contact-item p {
+    margin-top: 10px;
+  }
+
+  #main-phone {
+    margin-top: 0;
+  }
+
+  #map-container {
+    width: 100%;
+    height: 720px;
+    border-radius: 5px;
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .page-container {
+    gap: 50px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .left-section {
+    padding-left: 19px;
+  }
+
+  #map-container {
+    height: 665px;
+  }
+
+  .contact-item {
+    font-size: 14px;
+  }
+
+  .page-container {
     gap: 30px;
   }
-  
-  .left-section, .right-section {
+
+  .left-section,
+  .right-section {
     width: 100%;
-    padding-right: 0;
   }
   
-  .map-wrapper {
-    position: relative;
-    top: 0;
-    height: 500px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+  /* Стили для иконок на меньших экранах */
+  .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  
+  .icon img {
+    max-width: 20px;
+    max-height: 20px;
   }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   body {
     padding: 30px 20px;
   }
-  
-  .title {
-    font-size: 36px;
-    margin-top: 20px;
-  }
-  
-  .map-wrapper {
-    height: 400px;
-  }
-}
 
-@media (max-width: 480px) {
+  .page-container {
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 60px;
+    padding: 0;
+  }
+
+  .left-section,
+  .right-section {
+    width: 100%;
+  }
+
   .title {
     font-size: 28px;
-    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .contact-item {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
   }
   
-  .contact-item, .schedule {
-    font-size: 16px;
+  .icon img {
+    max-width: 18px;
+    max-height: 18px;
   }
-}
 
-.contact-item p {
-  margin: 3px 0;
-  font-size: 17px;
-  font-weight: 600;
-}
+  .schedule-wrapper {
+    font-size: 14px;
+  }
 
-.contact-item p strong {
-  font-weight: 600;
-  color: #000;
-}
+  #map-container {
+    height: 400px;
+    width: 100%;
+  }
 
-.contact-item div p:first-child {
-  margin-bottom: 8px;
-}
+  .footer {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
 
-/* Стили для блока режима работы */
-.schedule-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  text-align: left;
-}
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    width: 100%;
+  }
 
-.schedule-wrapper p {
-  margin: 0 0 6px 0;
-  line-height: 1.5;
-  font-size: 17px;
-  font-weight: 600;
-}
+  .social-links {
+    justify-content: center;
+    margin: 15px 0;
+  }
 
-.schedule-wrapper p:first-child {
-  margin-bottom: 10px;
-}
+  .footer-nav {
+    flex-direction: column;
+    gap: 15px;
+  }
 
-.schedule-wrapper p:nth-child(3),
-.schedule-wrapper p:nth-child(4),
-.schedule-wrapper p:nth-child(6) {
-  font-weight: 400;
-}
-
-.schedule-wrapper p:nth-child(3) span,
-.schedule-wrapper p:nth-child(4) span,
-.schedule-wrapper p:nth-child(6) span {
-  font-weight: 600;
-}
-
-.schedule-wrapper p strong {
-  font-weight: 600;
-  font-size: 18px;
-}
-
-/* Добавляем отступы между "Будні" и "Субота" */
-.schedule-section p {
-  display: block;
-}
-
-/* Добавляем отступы для создания двухколоночной структуры в расписании */
-.schedule-section p:first-of-type {
-  display: flex;
-  justify-content: flex-start;
-  gap: 30px;
-  max-width: 570px;
-}
-
-/* Переопределение старых стилей */
-.schedule-section {
-  display: none;
-}
-
-/* Стиль для текста в блоке "Консультації", "Лабораторія" */
-.schedule-wrapper p:nth-child(2),
-.schedule-wrapper p:nth-child(5) {
-  font-weight: 600;
-}
-
-/* Отступы между элементами в блоке расписания */
-.schedule-wrapper p:nth-child(3),
-.schedule-wrapper p:nth-child(6) {
-  display: flex;
-  gap: 30px;
-}
-
-/* Установка отступа между Будни и Субота */
-.schedule-wrapper p span + span {
-  margin-left: 20px;
-}
-
-/* Добавим немного отступа после двоеточия */
-.schedule-wrapper p span:after {
-  content: " ";
-}
-
-/* Стили для выпадающего списка телефонов */
-.phone-dropdown {
-  position: relative;
-}
-
-.phone-container {
-  width: 100%;
-}
-
-.main-phone {
-  cursor: pointer;
-  margin-bottom: 5px;
-}
-
-.toggle-phones {
-  display: inline-block;
-  margin-left: 5px;
-  font-size: 12px;
-  transition: transform 0.2s;
-}
-
-.hidden-phones {
-  margin-top: 5px;
-}
-
-.hidden-phones p {
-  margin: 4px 0;
-  font-size: 15px;
-}
-
-.rotate-arrow {
-  transform: rotate(180deg);
-}
-
-/* Добавьте эти стили для фиксации иконки */
-.contact-item-centered {
-  position: relative;
-}
-
-/* Фиксируем иконку телефона в абсолютной позиции */
-.contact-item #phone-icon-container {
-  position: absolute;
-  left: 15px;
-  top: 15px;
-  display: flex
-;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  margin-right: -36px;
-  margin-left: 5px;
-  margin-top: 6px;
-  flex-shrink: 0;
-  z-index: 2; /* Чтобы иконка была поверх других элементов */
-}
-
-/* Убедимся, что родительский элемент имеет relative позиционирование */
-#phone-block {
-    position: relative; /* Обязательно для правильного позиционирования абсолютных элементов */
-    padding-left: 19px; /* Добавляем отступ для текста, чтобы не перекрывал иконку */
-}
-
-/* Добавляем отступ для выпадающего списка */
-#phone-dropdown-container {
-    margin-left: 0; /* Убираем отступ слева для выпадающего списка */
-}
-
-/* Если телефоны становятся слишком длинными, можно ограничить их ширину */
-#phone-dropdown p {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding-left: 2.45rem;
-}
-
-/* Стиль для самой иконки телефона */
-.contact-item #phone-icon-container img {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-}
-
-/* Адаптивные стили */
-@media screen and (max-width: 2200px) {
-  .nav ul li a {
-    font-size: 16px;
+  .footer-nav ul {
+    flex-direction: column;
     gap: 10px;
   }
-  
-  .logo {
-    font-size: 10px;
-    width: 212px;
-  }
 
-  .btn-primary {
-    font-size: 16px;
-    width: 267px;
-    padding: 0.9rem 1.9rem;
+  .phone-dropdown {
+    top: 51px;
+    width: 100%;
   }
-  
-  .header {
-    width: calc(80% - 52px);
-    height: 50px;
-    padding: 10px 26px;
-    top: 8px;
-    left: 0;
-    right: 0;
-  }
+}
+
+/* Удаляем все стили для выпадающего списка телефонов, так как они теперь полностью определены в JS */
+.phone-dropdown {
+    display: none; /* Только это свойство оставляем для совместимости */
+}
+
+.phone-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Добавляем для корректного позиционирования выпадающего списка */
+}
+
+#main-phone {
+    cursor: pointer;
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between !important;
+    width: 100%;
+}
+
+#toggle-arrow {
+    transition: transform 0.3s ease;
+    margin-left: auto !important;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 20px;
+}
+
+#toggle-arrow img {
+    width: 16px;
+    height: 16px;
+}
+
+#phone-block {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    padding-right: 10px !important;
+}
+
+#phone-block .icon {
+    margin-right: 15px;
+}
+
+#main-phone span:first-child {
+    margin-right: auto;
+}
+
+/* Специальные стили для иконки часов, которая может быть больше */
+.contact-item:has(.icon img[src$="clock-icon.svg"]) .icon {
+  align-self: flex-start;
+  margin-top: 5px;
 }

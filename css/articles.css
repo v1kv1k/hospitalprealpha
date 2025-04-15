@@ -3,7 +3,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 50px 66px;
+    padding: 50px 0px;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -148,7 +148,17 @@ h2 {
     height: 80px;
 }
 
+@media screen and (max-width: 2560px) {
+    .articles-page {
+        padding: 0 404px;
+    }
+}
+
 @media (max-width: 2200px) {
+
+    .articles-page {
+        padding: 0px 0px;
+    }
 
     .text-content {
         margin-left: 60px;
@@ -201,10 +211,6 @@ h2 {
     }
 }
 
-.articles-page {
-    margin-top: 120px;
-    padding: 0 20px;
-}
 
 .articles-page h1 {
     font-size: 64px;
@@ -218,17 +224,32 @@ h2 {
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     margin-bottom: 50px;
+    perspective: 1000px;
 }
 
 .article-card {
     background-color: #fff;
     border-radius: 10px;
     padding: 50px;
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    top: 0;
 }
 
 .article-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 30px rgba(122, 180, 105, 0.15);
+}
+
+.article-card:active {
+    transform: translateY(-15px);
+}
+
+.article-card:hover .arrow-circle {
     transform: translateY(-5px);
+    background-color: #689756;
 }
 
 .article-card h2 {
@@ -292,13 +313,27 @@ h2 {
     transform: translateX(3px);
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
     .articles-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
     .article-card p {
         max-width: 80%;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .articles-card h2 {
+        font-size: 24px;
+    }
+
+    .article-card p {
+        font-size: 10px;
+    }
+
+    .article-card {
+        height: 94%;
     }
 }
 
@@ -313,5 +348,74 @@ h2 {
 
     .article-card p {
         max-width: 90%;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+    .articles-page {
+        padding: 0 0px;
+    }
+
+    body {
+        padding: 50px 0px;
+    }
+
+    .article-card .arrow-circle {
+        position: absolute;
+        right: 30px;
+        bottom: 33px;
+    }
+
+    .article-card h2 {
+        font-size: 30px;
+        margin-bottom: -5px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+    }
+
+    .article-card {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 32px;
+        transform: translateY(0);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.0    5);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        top: 0;
+        height: 94%;
+    }
+
+    .article-card p {
+        font-size: 12px;
+        line-height: 1.2;
+        color: #000000;
+        margin-bottom: 4px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        max-width: 100%;
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .author-info h3 {
+        font-size: 18px;
+        margin-bottom: 4px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+    }
+
+    .articles-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-bottom: 80px;
+        perspective: 1000px;
+    }
+
+    .article-link svg {
+        width: 26px;
+        height: 26px;
+        transform: rotate(16deg);
     }
 }
